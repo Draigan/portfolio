@@ -1,0 +1,838 @@
+---
+title: Rubix's Cube
+layout: revealjs
+---
+
+%section
+	%h2 Wie man einen Rubik's Cube löst
+	.row.mb
+		= cube(:scrambled)
+	%p.mb (ohne Agorithmen/Drehsequenzen auswendig zu lernen)
+	.mb
+	%p von Klaus Weidinger
+	
+
+
+%section(data-timing='120')
+	%section
+		.center--outer
+			.center--inner
+				%h2 1. Grundlagen
+		
+	%section
+		%h3 Nicht in Stickern denken ...
+		= image_tag 'stickers.jpg'
+		%p 54 Sticker, aber diese sind nicht "unabhängig" voneinander
+
+	%section
+		%h3 ... sondern in Eck- und Kantenwürfeln
+		= image_tag 'cubies.jpg'
+		%p Kanten haben 2 Sticker
+		%p Ecken haben 3 Sticker
+
+	%section
+		.w60	
+			%p 1 Kreuz mit 6 festen Mittelteilen
+			%p Die Mitten sind der Referenzrahmen. Sie bestimmen, wo die anderen Teile im gelösten Zustand sein müssen.
+			= image_tag 'disassembled.webp'
+			%p 12 Kanten und 8 Ecken
+			%p => es müssen 20 Teile gelöst werden
+		
+			
+
+%section(data-timing='180')				
+	%section
+		.center--outer
+			.center--inner	
+				%h2 2. "Fridrich/CFOP" und "C6EC"
+
+	= method(:cfop)
+
+	%section(data-auto-animate)
+		%h3.mb Von CFOP zu C6EC
+		.row
+			.md
+				:markdown
+					| Step  | Solved | Method    |
+					|-------|--------|-----------|
+					| Cross | 4K     | freestyle |
+					| F2L   | 4(E+K) | intuitiv  |
+					| OLL   | 8o     | 57 algs   |
+					| PLL   | 8p     | 21 algs   |
+		
+				
+			= cube(:full)
+		.description		
+
+	%section(data-auto-animate)
+		%h3.mb Von CFOP zu C6EC
+		.row
+			.md
+				:markdown
+					| Step  | Solved    | Method    |
+					|-------|-----------|-----------|
+					| Cross | 4K        | freestyle |
+					| F2L   | 4(E+K)    | intuitiv  |
+					| ???   | 4E, 4K    | TODO      |
+		
+			= cube(:f2l)
+		.description		
+			%p 4 Kanten und 4 Ecken müssen noch gelöst werden.
+
+	%section(data-auto-animate)
+		%h3.mb Von CFOP zu C6EC
+		.row
+			
+			.md
+				:markdown
+					| Step  | Solved    | Method    |
+					|-------|-----------|-----------|
+					| Cross | 4K        | freestyle |
+					| F2L-1 | 3(E+K)    | intuitiv  |
+					| ???   | 5E, 5K    | TODO      |
+			= cube(:f2lminus)
+		.description.w60	
+			%p 5 Kanten und 5 Ecken müssen noch gelöst werden.			
+			%p Durch den freien Slot gibt es genug Bewegungsfreiheit, um die restlichen 5 Kanten intuitiv zu lösen.
+			%p Notiz: Positionierung, Orientierung unabhängig
+
+	%section(data-auto-animate)
+		%h3.mb Von CFOP zu C6EC
+		.row
+		
+			.md
+				:markdown
+					| Step    | Solved    | Method    |
+					|---------|-----------|-----------|
+					| Cross   | 4K        | freestyle |
+					| F2L-1   | 3(E+K)    | intuitiv  |
+					| EOLL+1  | 5Eo       | intuitiv  |
+					| EPLL+1  | 5Ep       | intuitiv  |
+					| ???     | 5K        | TODO      |
+		
+			= cube(:edges2full)
+		.description.w60
+			%p 5 Ecken bleiben übrig.
+			%p Es scheint keine Möglichkeit mehr zu geben, Fortschritt zu machen, ohne wesentlich mehr Schaden anzurichten.
+
+	%section(data-auto-animate)
+		%h3.mb Von CFOP zu C6EC
+		-# (Kombination aus CFOP + 8355 + Heise Method)
+		.row
+			.md
+				:markdown
+					| Step    | Solved    | Method    |
+					|---------|-----------|-----------|
+					| Cross   | 4K        | freestyle |
+					| F2L-1   | 3(E+K)    | intuitiv  |
+					| EOLL+1  | 5Eo       | intuitiv  |
+					| EPLL+1  | 5Ep       | intuitiv  |
+					| corners | 5K        | Kommutatoren |			
+		
+			= cube(:full)
+		.description
+			%p Lösung: Kommutatoren
+			%p gezielte 3-Ecken-Zyklen
+
+	%section
+		%h3.mb Übersicht
+		.row
+			%div
+				%p Kreuz
+				= cube(:cross, '', :medium)
+				%p freestyle
+			%div
+				%p F2L -1
+				= cube(:f2lminus, '', :medium)
+				%p intuitiv
+			%div
+				%p K. orientieren
+				= cube(:f2lminus2eo, '', :medium)
+				%p intuitiv
+			%div
+				%p K. positionieren
+				= cube(:eo2edges, '', :medium)
+				%p intuitiv
+			%div
+				%p Ecken
+				= cube(:full, '', :medium)
+				%p Kommutatoren
+		
+
+
+%section(data-timing='60')
+	%section
+		.center--outer
+			.center--inner
+				%h2 3. Notation
+
+	%section
+		.w50	
+			= image_tag('notation1.webp')
+			%p Jede Seite wird durch einen Buchstaben abgekürzt (englische Namen)
+			%p Ohne Zusatz ist immer eine Drehung um 90 Grad im Uhrzeigersinn gemeint (bei Blickrichtung frontal auf die entsprechende Seite)
+
+	%section
+		%p X: im Uhrzeigersinn
+		%p X': gegen den Uhrzeigersinn
+		%p X²: Halbdrehung
+		.row
+			= cube(:full, "U")
+			= cube(:full, "U'")
+			= cube(:full, "U2")
+
+	%section
+		%h3 Wie invertiert man einen Algorithmus	
+		%p 
+			(L)⁻¹ =
+			%span.fragment.fade-in
+				L'
+		%p.fragment.fade-in
+			(U')⁻¹ =
+			%span.fragment.fade-in
+				U	
+		%p.fragment.fade-in
+			(B²)⁻¹ =
+			%span.fragment.fade-in
+				B²
+		%p.fragment.fade-in 
+			(F R² D' U)⁻¹ =
+			%span.fragment.fade-in
+				U' D R² F'		
+		%p.fragment.fade-in 
+			(R U² R')⁻¹ =
+			%span.fragment.fade-in
+				R U² R'
+		%p.fragment.fade-in Rückwärts lesen und jede einzelne Drehung invertieren						
+
+
+
+%section(data-timing='240')
+	%section
+		.center--outer
+			.center--inner
+				%h2 4. Grundlegende Prinzipien
+
+	%section#rp	
+		%h3 Relative Positionierung (und Anker)
+		= rp
+		%br
+		%br
+		.row
+			.div
+				.row
+					= cube('colored=*/m UF UR|tweaks=B:Ru')
+				Falsch
+			.div
+				.row
+					= cube('colored=*/m UF UR')
+				Richtig
+		%p
+			%a.plain-link(href='#/c51')= 5.1
+			= '-'
+			%a.inactive= 5.2
+			= '-'
+			%a.inactive= 5.3
+			= '-'
+			%a.plain-link(href='#/c54')= 5.4
+			= '-'
+			%a.inactive= 5.5
+			= '-'
+			%a.plain-link(href='#/summary')= 'Summary'
+
+	%section#dar	
+		%h3 Zerstören und wieder reparieren
+		= dar
+		%br
+		%br
+		.row
+			= cube(:cross, "R U' R'")
+		%p
+			%a.inactive= 5.1
+			= '-'
+			%a.plain-link(href='#/c52')= 5.2
+			= '-'
+			%a.plain-link(href='#/c53')= 5.3
+			= '-'
+			%a.plain-link(href='#/c54')= 5.4
+			= '-'
+			%a.inactive= 5.5
+			= '-'
+			%a.plain-link(href='#/summary')= 'Summary'
+
+	%section#atj
+		%h3 Ausrichten, dann verbinden
+		= atj
+		%br
+		%br
+		.row
+			= cube("colored=UFR UF", "B' R'")
+		%p
+			%a.inactive= 5.1
+			= '-'
+			%a.plain-link(href='#/c52')= 5.2
+			= '-'
+			%a.inactive= 5.3
+			= '-'
+			%a.inactive= 5.4
+			= '-'
+			%a.inactive= 5.5
+			= '-'
+			%a.plain-link(href='#/summary')= 'Summary'
+
+
+%section
+	%section
+		.center--outer
+			.center--inner
+				%h2 5. Los geht's!
+
+	%section(data-timing='60')
+		%h3 5.1 Das Kreuz
+		.row
+			= cube(:scrambled)
+			= cube(:cross)
+					
+	%section#c51
+		.center--outer
+			.center--inner
+				%table
+					%tr
+						%td
+							%b Ziel
+						%td
+							Die 4 Kanten der weißen Seite lösen
+					%tr
+						%td
+							%b Wichtig
+						%td= rp
+					%tr
+						%td
+							%b Methode
+						%td freestyle
+
+
+	%section(data-timing='360')
+		%h3 5.2 Die ersten zwei Ebenen (F2L)
+		.row
+			= cube(:cross)
+			= cube(:f2lminus)
+
+	%section#c52
+		.center--outer
+			.center--inner
+				%table
+					%tr
+						%td
+							%b Ziel
+						%td
+							3x ein Ecke-Kante-Paar vorbereiten und zusammen einfügen
+					%tr
+						%td
+							%b Wichtig
+						%td
+							= dar
+							= atj
+					%tr
+						%td
+							%b Methode
+						%td intuitiv, "Aufzug"
+
+	%section
+		%h3 Der "Aufzug" (R U* R' und F' U* F)
+		.row
+			= cube(:elevator_r, "R U R'")
+			= cube(:elevator_f, "F' U' F")
+
+	%section
+		%ul
+			%li Der Aufzug "vertauscht" 2 Ecke-Kante-Paare
+			%li Der Aufzug verändert nur Würfel in "U" und in einem Slot
+		.row
+			= cube(:f2lminus)
+
+	%section		
+		%h3 Ecke-Kante-Paare vorbereiten und einsetzen
+		%p Ein Paar aus Ecke mit weißem Sticker und dazugehöriger Kante in eine der folgenden Positionen bringen ...
+		.row
+			= cube(:f2l, "F' U' F")
+			= cube(:f2l, "F' U F")
+			= cube(:f2l, "R U' R'")
+			= cube(:f2l, "R U R'")
+		%p ... und dann gemeinsam einsetzen.
+		%p Ggf. sind die Würfel zu Beginn nicht in "U" und müssen zunächst aus einem Slot nach oben gebracht werden.	
+		
+	%section
+		%h3 F2L-Übung
+		.row
+			= cube(:practice_f2l)
+
+
+	%section(data-timing='120')
+		%h3 5.3 Die Kanten orientieren
+		.row
+			= cube(:f2lminus)
+			= cube(:f2lminus2eo)
+
+	%section#c53
+		.center--outer
+			.center--inner
+				%table
+					%tr
+						%td
+							%b Ziel
+						%td
+							3 Kanten richtig orientiert oben, eine Kante im Slot
+					%tr
+						%td
+							%b Wichtig
+						%td= dar
+					%tr
+						%td
+							%b Methode
+						%td 
+							Abwechselnd F- und R- "Aufzug"<br>
+							(Eine Kante richtig nach oben bringen, eine falsche Kante in den Slot bringen)
+
+	%section
+		%h3 Wie werden Kanten richtig orientiert?
+		.row
+			= cube(:edge_flip, "R U2 R' F' U' F")
+
+
+	%section(data-timing='180')
+		%h3 5.4 Die Kanten lösen
+		.row
+			= cube(:f2lminus2eo)
+			= cube(:eo2edges)
+
+	%section#c54
+		.center--outer
+			.center--inner
+				%table
+					%tr
+						%td
+							%b Ziel
+						%td
+							Alle Kanten gelöst
+					%tr
+						%td
+							%b Wichtig
+						%td
+							= dar
+							= rp
+					%tr
+						%td
+							%b Methode
+						%td 
+							Nur noch entweder F- oder R- "Aufzug"<br>
+							(Einen "Anker" auswählen, dann relative Positionierung<br>
+							beachten. Falls 3 gelöst und 1 unten: eine Kante um<br>
+							90 Grad versetzen und als neuen Anker wählen)
+
+	%section
+		%h3 Kanten-Übung
+		.row
+			= cube(:practice_edges)
+
+
+	%section(data-timing='600')
+		%h3 5.5 Die 5 verbleibenden Ecken
+		.row
+			= cube(:edges2full)
+			= cube(:full)
+
+	%section#c55
+		.center--outer
+			.center--inner
+				%table
+					%tr
+						%td
+							%b Ziel
+						%td
+							3 Ecken vertauschen, ohne wieder alles kaputt zu machen<br>
+							(Mehrfach anwenden, um die letzten 5 Ecken zu lösen.)
+					%tr
+						%td
+							%b Wichtig
+						%td Erst nachdenken, dann drehen!
+					%tr
+						%td
+							%b Methode
+						%td Kommutatoren
+
+	%section
+		%h3 Kommutativität und Kommutatoren: ABA'B'
+		-# %p Kommutativität nicht binär
+		-# Notiz: Wenn Rubik's Cube kommutativ wäre, dann 4096 Positionen, aber tatsächlich 43 Quintillionen<br>
+		%p
+			%span.math= '$ A $'
+			und
+			%span.math= '$ B $'
+			kommutativ
+		%p
+			%span.math= '$ AB = BA $'
+		%p
+			%span.math= '$ AB(BA)\' = BA(BA)\' $'
+		%p
+			%span.math= '$ ABA\'B\' = Id $'
+		%p 
+			Bezeichnen wir mit 
+			%span.math= '$ {\Tau} $'
+			den "Träger" einer Permutation, dann gilt weiter:	
+		%p
+			%span.math= '$ {\Tau}_{ABA\'B\'} = \emptyset $'
+		%p
+			%span.math= '$ \left|{\Tau}_{ABA\'B\'}\right| = 0 $'	
+		%p 
+			Die Anzahl der bewegten Teile
+			%span.math= '$ \left|{\Tau}_{ABA\'B\'}\right| $'
+			misst, wie stark nicht-kommutativ
+			%span.math= '$ A $' 
+			und 
+			%span.math= '$ B $'
+			sind
+		%p 
+			Wir nennen ab jetzt für zwei Drehsequenzen/Permutationen 
+			%span.math= '$ A $' 
+			und 
+			%span.math= '$ B $' 
+			die zusammengesetzte Drehsequenz
+			%span.math= '$ ABA\'B\' $'
+			den Kommutator.
+
+	%section	
+		%p 
+			%span.math= '$ A $' 
+			und 
+			%span.math= '$ B $'
+			sind stark nicht-kommutativ
+			%span.math= '$ \leftrightsquigarrow {\Tau}_A \cap {\Tau}_B $'
+			groß
+		%table.centered
+			%thead
+				%tr
+					%td
+						%span.math= '$ \left|{\Tau}_{ABA\'B\'}\right| $'
+					%td	
+					%td	A und B
+					%td	
+					%td
+						%span.math= '$ \left|{\Tau}_A \cap {\Tau}_B\right| $'
+			%tbody
+				%tr
+					%td 0
+					%td
+						%span.math= '$ \Leftrightarrow $'
+					%td kommutativ
+					%td
+						%span.math= '$ \Leftarrow $'
+					%td 0				
+				%tr
+					%td 3
+					%td
+						%span.math= '$ \Leftrightarrow : $'
+					%td "fast kommutativ"
+					%td
+						%span.math= '$ \Leftarrow $'
+					%td 1
+				%tr
+					%td ≥4
+					%td
+						%span.math= '$ \Leftrightarrow : $'
+					%td "stark nicht-komm."
+					%td
+						%span.math= '$ \Rightarrow $'
+					%td ≥2				
+
+	%section	
+		%p 
+			Wir versuchen also, Kommutatoren mit möglichst kleinem Träger
+			%span.math= '$ {\Tau}_{ABA\'B\'} $'
+			zu finden
+		%p 
+			Dazu suchen wir Algorithmen
+			%span.math= '$ A $' 
+			und 
+			%span.math= '$ B $'
+			, für welche die Schnittmenge aus 
+			%span.math= '$ {\Tau}_A $'
+			und
+			%span.math= '$ {\Tau}_B $'
+			sehr klein ist
+		.row
+			.div.fragment.fade-in
+				= cube(:f2lminus, "R U R'")
+				%p
+					%span.math= '$ {\Tau}_A $'
+			.div.fragment.fade-in	
+				= cube('colored=U* F FR R RB B BL L LF', "D")
+				%p
+					%span.math= '$ {\Tau}_B $'
+			.div.fragment.fade-in	
+				= cube('colored=*/me ULF ULB UBR DBL DBR', "R U R' D R U' R' D'")
+				%p
+					%span.math= '$ {\Tau}_{ABA\'B\'} $'
+
+	%section
+		%h3 Warum Kommutatoren funktionieren
+		%ul
+			%li
+				Extra(A,B) := Würfel aus
+				%span.math= '$ \overline{{\Tau}_A} \cup \overline{{\Tau}_B} $' 
+			%li
+				Intra(A) := Würfel aus 
+				%span.math= '$ {\Tau}_A \setminus {\Tau}_B $'
+				, die nach Anwendung von 
+				%span.math= '$ A $'
+				wieder in 
+				%span.math= '$ {\Tau}_A \setminus {\Tau}_B $'
+				sind
+			%li
+				Intra(B) := Würfel aus 
+				%span.math= '$ {\Tau}_B \setminus {\Tau}_A $'
+				, die nach Anwendung von 
+				%span.math= '$ B $' 
+				wieder in 
+				%span.math= '$ {\Tau}_B \setminus {\Tau}_A $'
+				sind
+		%p.w80		
+			(Definition von Intra(A) so gewählt, dass Würfel aus Intra(A) immer von A und nie von B beeinflusst werden.)
+		
+		.md
+			:markdown
+				| Teil       | A  | B  | A' | B' | ABA'B' |
+				|------------|----|----|----|----|--------|
+				| Extra(A,B) | -  | -  | -  | -  | -      |
+				| Intra(A)   | A  | -  | A' | -  | -      |
+				| Intra(B)   | -  | B  | -  | B' | -      |
+				| Pivot      | A  | -  | A' | B' | B'     |
+				| Upper      | A  | B  | -  | B' | A      |
+				| Lower      | -  | B  | A' | -  | BA'    |
+			
+	%section
+		%h3 Conjugates / Setup-Moves
+		%p Manchmal lässt sich kein guter Kommutator finden.
+		%p Es sind Setup-Moves S notwendig: S ABA'B' S'
+		%ul.w60
+			%li Für Anfänger: Pivot muss ohne Setup stimmen, Setup kümmert sich nur um Upper
+			%li Für Profis: Upper stimmt ohne Setup, Setup bringt Lower so in Position, dass Pivot durch B* gelöst werden kann.
+
+	%section
+		%h3 Zusammenfassung: Kommutatoren
+		%p Suche geeignete Drehsequenzen A und B und wende dann ABA'B' an.
+		%ul.w70
+			%li Zwei ungelöste Ecken unten (Pivot + Lower) und eine oben (Upper) sein!
+			%li Upper & Pivot => "A" (A ist immer ein "Aufzug"!)
+			%li Lower & Pivot => "B" (Achtung, B/B' nicht verwechseln!)
+			%li ABA'B'
+		%p.w70 Dann gilt: es werden genau 3 Ecken getauscht (Upper -> Pivot -> Lower -> Upper) und alle andere Teile bleiben unverändert.
+
+		%ul.w70
+			%li Wenn Upper durch A gelöst wird, ist es auch nach ABA'B' noch gelöst
+			%li Wenn Pivot schon zur unteren Seite passt, ist es nach ABA'B' gelöst
+		
+		%p.w70 Metastrategie: Falls nur noch verdrehte Ecken übrig sind: Kommutator 1x anwenden, dann sind wieder kaputte Ecken da
+
+	%section
+		%h3 Kommutatoren-Übung 1
+		.row
+			= cube(:full, "|setupmoves=R U2 R' D' R U2 R' D F' L F R' F' L' F R")
+
+	%section
+		%h3 Kommutatoren-Übung 2
+		.row
+			= cube(:full, "|setupmoves=R' D' L' D R D' L D D R U R' D' R U' R'") 
+
+%section#summary
+	%h3 Übersicht
+	.row.mb
+		%div
+			%p Kreuz
+			= cube(:cross, '', :medium)
+			%p freestyle
+			= rp
+		%div
+			%p F2L -1
+			= cube(:f2lminus, '', :medium)
+			%p intuitiv
+			= dar
+			%br
+			= atj
+		%div
+			%p K. orientieren
+			= cube(:f2lminus2eo, '', :medium)
+			%p intuitiv
+			= dar
+		%div
+			%p K. positionieren
+			= cube(:eo2edges, '', :medium)
+			%p intuitiv
+			= dar
+			%br
+			= rp
+		%div
+			%p Ecken
+			= cube(:full, '', :medium)
+			%p Kommutatoren
+			= sum
+	.row
+		%div
+			%p "Aufzug"
+			%p RU*R' oder F'U*F
+		%div
+			%p Kommutatoren
+			%p z.B. (RU'R')D(RUR')D'
+
+
+
+%section
+	%h1 Glückwunsch !!!
+	.row.mb
+		= cube(:full)
+
+
+-# %section(data-timing='1')
+-# 	%section
+-# 		%h2 Anhang A: Die "Gesetze des Würfels" und weitere Kommutatoren
+
+-# 	%section
+-# 		%h3 §1: Die Kanten-Orientierung ist "gerade"
+-# 		%p Man kann nicht eine einzelne Kante flippen
+-# 		%p Aber man kann 2 Kanten flippen
+-# 		%p Und es gibt einen Kommutator dafür: "flip 2 edges"
+
+-# 	%section
+-# 		%h3 §2: Die Ecken-Orientierung ist "durch 3 teilbar"
+-# 		%p Man kann nicht eine einzelne Ecke drehen
+-# 		%p Aber man kann 2 Ecken (in entgegengesetzte Richtungen drehen)
+-# 		%p Kommutator "twist 2 corners"
+-# 		%p Oder 3 Ecken in die gleiche Richtung ("buffer >>commutator<<")
+
+-# 	%section
+-# 		%h3 §3: Die Ecken+Kanten-Permutation ist "gerade"
+-# 		%p Man kann nicht nur 2 Kanten vertauschen
+-# 		%p Man kann nicht nur 2 Ecken vertauschen
+-# 		%p Aber man kann 3 Kanten zyklisch vertauschen (Kommutator: "cycle 3 edges")
+-# 		%p Und man kann 3 Ecken zyklisch vertausch (Alle Kommutatoren, die wir im Hauptteil benutzt haben)
+-# 		%p Und man kann 2 Kanten vertauschen und gleichzeitig 2 Ecken vertauschen(Nicht mit einem Kommutator möglich, warum?)		
+
+-# 	%section
+-# 		%p Aus §1, §2 und §3 folgt:
+-# 		%p Nur 1/12 aller theoretisch möglichen Zustände sind durch reines Drehen erreichbar
+
+
+
+-# %section(data-timing='1')
+-# 	%section
+-# 		%h2 Anhang B: Überblick über verschiedene Lösungsmethoden
+
+-# 	%section
+-# 		Beginner-Method<br>
+-# 		Tags: "4"-Look last layer, low alg count
+
+-# 	%section
+-# 		Roux<br>
+-# 		Tags: Block building, corners first, slice moves, last step intuitive, speedcubing<br>
+-# 		Blocks: 6E, 4C, freestyle<br>
+-# 		Corners (CMLL): 4C, 42 algorithms<br>
+-# 		Edges: 6E, freestyle
+
+-# 	%section
+-# 		ZB<br>
+-# 		Tags: Extremely early edge orientation, 2-gen, speedcubing<br>
+-# 		EO Line: 2E, 10Eo, freestyle<br>
+-# 		F2L: 6E, 4C, freestyle<br>
+-# 		OCLL: 4Co, 7 algorithms<br>
+-# 		PLL: 4Ep, 4Cp, 21 algorithms
+
+-# 	%section
+-# 		Petrus<br>
+-# 		Tags: block building, early edge orientation, fewest moves<br>
+-# 		Block: 3E, 1C, freestyle<br>
+-# 		Block++: 2E, 1C, freestyle<br>
+-# 		EO: 7Eo, freestyle<br>
+-# 		F2L: 3Ep, 2C, freestyle<br>
+-# 		CPLL: 4Cp, x algorithms<br>
+-# 		COLL: 4Co, x algorithms<br>
+-# 		EPLL: 4Ep, x algorithms
+					
+-# 	%section
+-# 		Heise: weird block building, edge orientation, commutators, fewest moves<br>
+-# 		4 squares: { 7E, 3C }, freestyle<br>
+-# 		match + EO: 4B, 5Eo, freestyle<br>
+-# 		Edges + 2C: 5Ep, 2C, "freestyle"<br>
+-# 		final 3C: 3C, commutators
+					
+-# 	%section
+-# 		Kociemba:<br>
+-# 		Tags: computer solving, perfect shortest solutions, group theory<br>
+-# 		group 4->2: 2.217.093.120 algorithms<br>
+-# 		group 2->0: 19.508.428.800 algorithms
+
+-# 	%section
+-# 		Thistlethwaite:<br>
+-# 		Tags: computer solving, group theory<br>
+-# 		group 4->3: 12Eo, 2,048 algorithms<br>
+-# 		group 3->2: 4Ep, 8Co, C-parity, 1082565 algorithms<br>
+-# 		group 2->1: ???, 29,400 algorithms<br>
+-# 		group 1->0: ???, 663,552 algorithms
+
+-# 	%section
+-# 		Human Thistlethwaite:<br>
+-# 		Tags: just for fun, group theory, low alg count<br>
+-# 		group 4->3: 12Eo, freestyle<br>
+-# 		group 3->2: 4Ep, 8Co, C-parity, 2 algorithms<br>
+-# 		group 2->1: ???, 2 algorithms<br>
+-# 		group 1->0: ???, freestyle
+					
+-# 	%section
+-# 		Naive Blindfolded:<br>
+-# 		Tags: blindfolded, log alg count, setup moves, orientation first<br>
+-# 		EO: 12Eo, 2 algorithms<br>
+-# 		CO: 8Co, 2 algorithms<br>
+-# 		Edges: 10/12Ep, 1 algorithm<br>
+-# 		Corners: 6/8Cp, 1 algorithm<br>
+-# 		Parity: 2E+2C, 1 algorithm
+
+-# 	%section
+-# 		Pochmann Blindfolded:<br>
+-# 		Tags: blindfolded, speed cubing<br>
+
+
+-# %section(data-timing='1')
+-# 	%section
+-# 		%h2 Anhang C: Gruppentheorie
+								
+-# 	%section
+-# 		Gruppengeneratoren<br>
+-# 		Sei M die Menge der Elemente, die durch beliebige Kombination von <G1, G2, ... Gn> entsteht.
+-# 		Dann ist (M, o) eine Gruppe und G1, G2, ..., Gn werden Generatoren der Gruppe genannt.
+
+-# 	%section	
+-# 		Die verschachtelten Gruppen des Rubix's Cube
+-# 		'<U, D, F, B, L, R> (alle 43 Quintillionen Zustände)
+-# 		'<U², D², F, B, L, R> <U, D, F², B², L, R> <U, D, F, B, L², R²> (Kantenorientierung fest)
+-# 		'<U², D², F², B², L, R> <U, D, F², B², L², R²> <U², D², F, B, L², R²> (Eckenorientierung fest, E-Kanten und UD-Kanten separiert)
+-# 		'<U², D², F², B², L², R²> (E-, M-, S- Kanten separiert, Ecken in zwei Vierergruppen separiert)
+-# 		Id
+
+
+-# %section(data-timing='1')
+	%section
+		%h2 Anhang D: Weitere "Twisty Puzzles"
+					
+	%section
+		Corner-turning Cubes
+
+	%section	
+		Edge-turning Cubes
+
+	%section	
+		Non-Cubes
+
+	%section	
+		Larger Cubes
+
+	%section	
+		More dimensional Cubes

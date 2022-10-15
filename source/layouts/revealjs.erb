@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title><%= current_page.data.title || "Middleman" %></title>
+
+		<link rel="stylesheet" href="assets/revealjs/dist/reset.css">
+		<link rel="stylesheet" href="assets/revealjs/dist/reveal.css">
+		<link rel="stylesheet" href="assets/revealjs/dist/theme/blood.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="assets/revealjs/plugin/highlight/monokai.css">
+
+    	<link href="stylesheets/site.css" rel="stylesheet" />
+    	<script src="javascripts/site.js"></script>
+
+		<!-- <script src="assets/animcube3/AnimCube3.js"></script> -->
+
+		<script src="assets/roofpig/jquery.min.js"></script>
+		<script src="assets/roofpig/roofpig_and_three.min.js"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<%= yield %>
+				
+			</div>
+		</div>
+
+		<script src="assets/revealjs/dist/reveal.js"></script>
+		<script src="assets/revealjs/plugin/notes/notes.js"></script>
+		<script src="assets/revealjs/plugin/markdown/markdown.js"></script>
+		<script src="assets/revealjs/plugin/highlight/highlight.js"></script>
+		<script src="assets/revealjs/plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				disableLayout: true,
+				totalTime: 1800,
+				keyboard: {
+					70: null, // F
+					73: () => { Reveal.getPlugin('notes').open() }, // I
+					83: null, // S
+					86: null, // V
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+			});
+			// Reveal.on('slidechanged', event => {
+			// 	let current = Array.from(Reveal.getCurrentSlide().querySelectorAll('.roofpig'))
+			// 	let all = Array.from(document.querySelectorAll('.roofpig'))
+			// 	let inactive = Array.from(all).filter(x => !Array.from(current).includes(x))
+			// 	inactive.forEach remove
+			// 	current.forEach initialize
+			// })
+			
+		</script>
+		
+	</body>
+</html>
