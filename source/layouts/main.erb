@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= current_page.data.title %>
+  </title>
+  <link href="stylesheets/normalize.css" rel="stylesheet" />
+  <link href="stylesheets/styles.css" rel="stylesheet" />
+  <link href="stylesheets/blocks/layout.css" rel="stylesheet" />
+  <link href="stylesheets/blocks/footer.css" rel="stylesheet" />
+  <link href="stylesheets/blocks/project.css" rel="stylesheet" />
+  <link href="stylesheets/blocks/btn.css" rel="stylesheet" />
+  <link href="stylesheets/blocks/header.css" rel="stylesheet" />
+  <link href="stylesheets/blocks/hero.css" rel="stylesheet" />
+  <link href="stylesheets/blocks/practice.css" rel="stylesheet" />
+  <link href="stylesheets/blocks/project-wrapper.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="layout">
+    <div class="layout--header">
+    <header class="header">
+      <nav class="header--inner-section">
+       <a href="index.html">
+          <h1>Draigan Le Febvre</h1>
+        </a>
+        <div class="header--menu">
+            <ul>
+              <li>
+                <%= link_to "Home" , "/index.html" %>
+              </li>
+              <li>
+                <%= link_to "Projects" , "/project.html" %>
+              </li>
+              <li>
+                <%= link_to "Resume" , "/resume.html" %>
+              </li>
+              <li>
+                <%= link_to "Technologies" , "/tech.html" %>
+              </li>
+              <li>
+                <%= link_to "Contact" , "/contact.html" %>
+              </li>
+            </ul>
+
+          <a href="https://github.com/Draigan"><img src="/images/GitHub.png" class="header--icon" alt="github"> </a>
+        </div>
+      </nav>
+    </header>
+    </div>
+    <main class="layout--main">
+      <%= yield %>
+    </main>
+    <div class="layout--footer">
+      <footer class="footer">
+        <div class="footer--inner-section">
+        <span class="footer--copyright">© Copyright 2022</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+
+.project-wrapper {
+  display: flex;
+  color: black;
+}
+
+.project-wrapper--header {
+  font-size: 28px;
+  padding: 10px;
+  text-align: center;
+  color: lightgray;
+  text-transform: uppercase;
+}
+.project-wrapper--inner-section {
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: black;
+  width: 1200px;
+  margin: auto;
+}
