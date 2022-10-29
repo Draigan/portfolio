@@ -7,7 +7,10 @@
 .project--textarea {
   padding: 15px;
 }
-
+.project--view-more {
+  font-size: 20px;
+  padding: 5px;
+}
 .project--heading {
   text-transform: uppercase;
 }

@@ -132,3 +132,9 @@ end
 Dir['helpers/*'].each(&method(:load))
 
 # set :relative_links, true
+
+data.projects.each do |p|
+  proxy "/projects/#{p.slug}.html", "/projects/project_view.html", locals: p , :ignore => true
+  
+end
+

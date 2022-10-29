@@ -1,0 +1,29 @@
+---
+title: Project 
+layout: main
+---
+<div class="project-view">
+  <h1 class="project-view--title"><%= title %></h1>
+  
+  <span class="project-view--date">
+    Created At: <%= created_at %> - Updated At: 
+<% if updated_at.nil? %>
+  Ongoing
+<% else %>
+  <%= updated_at %>
+<% end %>
+  </span>
+  <p class="project-view--description">
+    <%= description %> 
+  </p>
+  <div class="project-view--featured-image-wrapper">
+    <img src="/images/<%= image %>" class="project-view--featured-image"/>
+  </div>
+  <p class="project-view--long-description"> 
+    <%= long_description %> 
+  </p>
+  <a class="btn -black project-view--github-link" target="_blank" rel="noopener" href="<%= github_url %>">
+    <span class="btn--text"> View GitHub </span>
+  </a>
+
+</div>
