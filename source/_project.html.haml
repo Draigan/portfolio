@@ -1,0 +1,23 @@
+.project
+  = link_to "/projects/#{slug}.html" do
+    = image_tag "/images/#{image}", class: "project--image", alt: alt
+
+  .project--textarea
+    %h2.project--heading
+      = title  
+
+    %span.project--dates
+
+    %p
+      = description 
+
+  .project--buttons
+    = link_to "/projects/#{slug}.html", class:"btn -black" do 
+      %span.btn--text
+        Explore
+
+
+    = link_to github_url, class:"btn -black", target: "_blank", rel: "noopener" do 
+      %span.btn--text
+        Github
+  

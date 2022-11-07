@@ -117,7 +117,6 @@ Tilt.default_mapping.template_map.delete('markdown')
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
-
 configure :build do
   # don't process reveal.js, because it was copied to build/ manually
   ignore 'assets/*'

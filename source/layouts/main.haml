@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+%html(lang="en")
+
+%head
+  %meta(charset="UTF-8")
+  %meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+  %title
+    = current_page.data.title 
+
+  = stylesheet_link_tag "normalize" 
+  = stylesheet_link_tag "styles" 
+  = stylesheet_link_tag "blocks/layout" 
+  = stylesheet_link_tag "blocks/footer" 
+  = stylesheet_link_tag "blocks/project" 
+  = stylesheet_link_tag "blocks/btn" 
+  = stylesheet_link_tag "blocks/header" 
+  = stylesheet_link_tag "blocks/hero" 
+  = stylesheet_link_tag "blocks/practice" 
+  = stylesheet_link_tag "blocks/project-wrapper" 
+  = stylesheet_link_tag "blocks/project-view" 
+  = javascript_include_tag "site", defer: true 
+
+
+%body
+  .layout
+    .layout--header
+      %header.header
+        %nav.header--inner-section
+          = link_to "/index.html" do 
+            %h1 Draigan Le Febvre
+          .header--menu
+            %ul
+              %li
+                = link_to "Home", "/index.html" 
+              %li
+                = link_to "Projects", "/projects.html" 
+              %li
+                = link_to "Resume", "/resume.html" 
+              %li
+                = link_to "Technologies", "/tech.html" 
+              %li
+                = link_to "Contact", "/contact.html" 
+
+            = link_to "https://github.com/Draigan", target:"_blank", rel:"noopener" do  
+              = image_tag "/images/GitHub.png", class:"header--icon", alt:"github" 
+           
+    %main.layout--main
+      = yield 
+    .layout--footer
+      %footer.footer
+        .footer--inner-section
+          %span.footer--copyright
+            © Copyright 2022</span>
+

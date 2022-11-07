@@ -1,0 +1,58 @@
+---
+title: Draigan's Portfolio
+layout: main
+---
+%section
+  .hero
+    .hero--inner-section
+      %h1.hero--text.-large
+        Welcome!
+      %h2.hero--text.-small
+        My name is Draigan Le Febvre and I'm a self taught web developer.
+      = link_to "/projects.html", class: "btn" do
+        %span.btn--text
+          Projects
+      = link_to "https://github.com/draigan", class: "btn", target: "_blank", rel: "noopener" do 
+        %span.btn--text
+          Github
+%section
+  .practice>
+    .practice--inner-section
+      %h1.practice--header-test
+        Why Hire Me?
+
+      .practice--box-container
+        .practice--box
+          = image_tag "/images/heart.svg", class:"practice--image", alt:"Heart Symbol" 
+          %h2.practice--inner-text
+            I'm passionate about programming.
+
+        .practice--box
+          = image_tag "/images/clock.svg", class:"practice--image", alt:"Clock Symbol" 
+          %h2.practice--inner-text
+            I continue learning on my own time.</h2>
+
+        .practice--box
+          = image_tag "/images/directed.svg", class:"practice--image", alt:"Self Directed Symbol" 
+          %h2.practice--inner-text
+            I'm self directed and persistent.
+
+        .practice--box
+          = image_tag "/images/balloons.svg", class:"practice--image", alt:"Balloons Symbol" 
+          %h2.practice--inner-text
+            Fun at parties.
+
+
+%section
+
+  .project-wrapper
+    .project-wrapper--inner-section
+      .project-wrapper--header
+        Relevant Projects
+
+      - data.projects.select { |p| p.featured }.each do |p| 
+        = partial('project', locals: p) 
+
+      .project-wrapper--footer
+        = link_to "projects.html", class:"project--view-more" do
+          View All Projects

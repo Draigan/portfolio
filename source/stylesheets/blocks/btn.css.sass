@@ -1,0 +1,52 @@
+/* BUTTONS */
+.btn 
+  position: relative
+  display: inline-block
+  cursor: pointer
+  text-align: center
+  min-width: 185px
+  height: 50px
+  padding: 15px 50px
+  margin-top: 10px
+  border: 2px solid white
+  text-transform: uppercase
+  font-weight: 700
+
+
+.btn::before 
+  position: absolute
+  content: ""
+  left: 0
+  bottom: 0
+  background-color: white
+  height: 100%
+  width: 100%
+  transform: scaleY(0)
+  transform-origin: top
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)
+
+
+.btn:hover::before 
+  transform: scaleY(1)
+  transform-origin: bottom
+
+
+.btn--text 
+  position: relative
+
+
+.btn:hover .btn--text 
+  color: black
+
+
+.btn.-black 
+  border: 2px solid black
+  color: black
+
+
+.btn.-black:hover .btn--text 
+  color: white
+
+.btn.-black::before 
+  background-color: black
+
