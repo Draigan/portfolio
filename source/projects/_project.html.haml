@@ -1,0 +1,27 @@
+.project
+  = link_to "/projects/#{project.slug}.html" do
+    = image_tag "/images/#{project.image}", class: "project--image", alt: project.alt
+
+  .project--textarea
+    %h2.project--heading
+      = project.title  
+
+    %p
+      = project.description 
+
+    .project--skills-wrapper
+      - project.skills.each do |skill|
+        = link_to "/skills/#{skill.slug}.html"  do 
+          = image_tag "/images/#{skill.image}", class: "project--skill-image", alt: skill.alt
+
+
+  .project--buttons
+    = link_to "/projects/#{project.slug}.html", class:"btn -black" do 
+      %span.btn--text
+        Explore
+
+    = link_to project.github_url, class:"btn -black", target: "_blank", rel: "noopener" do 
+
+      %span.btn--text
+        Github
+

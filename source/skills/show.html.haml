@@ -1,0 +1,20 @@
+---
+title: Skill 
+layout: main
+---
+
+.skill-view
+  %h1.skill-view--title= skill.name 
+
+  %p.skill-view--description
+    = skill.description  
+
+  .skill-view--featured-image-wrapper
+    = link_to "/projects/using/#{skill.slug}.html" do
+      = image_tag "/images/#{skill.image}", class: "skill-view--featured-image", alt: skill.alt
+
+
+  %p.skill-view--long-description= skill.long_description 
+
+
+

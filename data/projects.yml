@@ -2,7 +2,7 @@
   id: 1
   created_at: Aug 8 2022
   updated_at: null
-  image: chessboard.png
+  image: projects/chessboard.png
   slug: chess
   github_url: https://github.com/draigan/chess
   alt: Chessboard
@@ -20,8 +20,8 @@
   id: 2
   created_at: Sep 4 2022
   updated_at: Sep 23
-  image: landtrust.png
-  slug: toronto_landtrust_bot
+  image: projects/landtrust.png
+  slug: toronto-landtrust-bot
   github_url: https://github.com/draigan/toronto_land_trust
   alt: Toronto Landtrust Logo
   featured: true
@@ -38,7 +38,7 @@
   id: 3
   created_at: Aug 6 2022
   updated_at: null
-  image: sudoku.png
+  image: projects/sudoku.png
   slug: sudoku
   github_url: https://github.com/draigan/sudoku
   alt: Sudoku Board
@@ -56,7 +56,7 @@
   id: 4
   created_at: Oct 4 2022
   updated_at: Oct 5 2022
-  image: passwordgen.png
+  image: projects/passwordgen.png
   slug: pass_generator
   github_url: https://github.com/draigan/password_generator
   alt: Password Generator
@@ -70,11 +70,12 @@
             Nullam viverra orci eget bibendum hendrerit. Mauris sed maximus risus. Ut interdum tincidunt lorem, in molestie magna consequat eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc convallis tincidunt porta. Sed tristique magna eget malesuada tempus. Sed vestibulum turpis vitae lectus aliquet efficitur. Nunc elit enim, commodo ac dapibus quis, fringilla eget ipsum. Fusce ullamcorper dui vitae ante ultrices, ut consequat sapien porta. Etiam sed turpis eu turpis malesuada vestibulum. Aliquam at est at ex rhoncus cursus. Aliquam laoreet tincidunt lorem, nec gravida massa gravida nec. Mauris dapibus pharetra purus a sollicitudin. Sed sed dignissim dui. Maecenas vel velit eget tortor tincidunt tristique.
             Etiam sed nisi semper, porttitor ante in, viverra magna. Sed id dictum odio. Aliquam in mi vitae nunc ultrices tempus vitae sed elit. Sed id ipsum dolor. Etiam ligula justo, fermentum in sodales id, interdum sit amet nibh. Ut imperdiet vehicula mollis. Suspendisse imperdiet viverra sem nec auctor. Phasellus egestas, justo non fermentum lobortis. 
             
+
 - title: Calculator 
   id: 5
   created_at: Sep 30 2022
   updated_at: Nov 2 2022 
-  image: calculator.png
+  image: projects/calculator.png
   slug: calculator
   github_url: https://github.com/draigan/calculator
   alt: Calculator 

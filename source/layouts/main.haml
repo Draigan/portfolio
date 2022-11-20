@@ -19,7 +19,10 @@
   = stylesheet_link_tag "blocks/hero" 
   = stylesheet_link_tag "blocks/practice" 
   = stylesheet_link_tag "blocks/project-wrapper" 
+  = stylesheet_link_tag "blocks/skill" 
+  = stylesheet_link_tag "blocks/skill-wrapper" 
   = stylesheet_link_tag "blocks/project-view" 
+  = stylesheet_link_tag "blocks/skill-view" 
   = javascript_include_tag "site", defer: true 
 
 
@@ -39,7 +42,7 @@
               %li
                 = link_to "Resume", "/resume.html" 
               %li
-                = link_to "Technologies", "/tech.html" 
+                = link_to "Tech & Skills", "/skills" 
               %li
                 = link_to "Contact", "/contact.html" 
 
@@ -53,4 +56,3 @@
         .footer--inner-section
           %span.footer--copyright
             © Copyright 2022</span>
-

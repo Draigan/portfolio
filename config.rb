@@ -104,9 +104,10 @@ helpers do
   #     end
   #   end      
   # end
+
 end
 
-activate :livereload
+# activate :livereload
 
 # turn off markdown, handled by reveal.js
 Tilt.default_mapping.template_map.delete('md')
@@ -129,12 +130,27 @@ configure :build do
 end
 
 # activate livereload for helpers
-Dir['helpers/*'].each(&method(:load))
+# Dir['helpers/*'].each(&method(:load))
 
 # set :relative_links, true
+require "helpers/data_helpers"
+include DataHelpers
+helpers DataHelpers
+
+proxy "/projects.html", "/projects/index.html", locals:  {slug_filter: nil}  , :ignore => true
+
+data.skills.each do |s|
+  proxy "/projects/using/#{s.slug}.html", "/projects/index.html", locals: { slug_filter: s.slug } , :ignore => true
+end
+
 
 data.projects.each do |p|
-  proxy "/projects/#{p.slug}.html", "/projects/project_view.html", locals: p , :ignore => true
+  proxy "/projects/#{p.slug}.html", "/projects/show.html", locals: { project: p } , :ignore => true
+  
+end
+
+data.skills.each do |s|
+  proxy "/skills/#{s.slug}.html", "/skills/show.html", locals: { skill: s } , :ignore => true
   
 end
 

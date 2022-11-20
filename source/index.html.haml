@@ -23,22 +23,22 @@ layout: main
 
       .practice--box-container
         .practice--box
-          = image_tag "/images/heart.svg", class:"practice--image", alt:"Heart Symbol" 
+          = image_tag "/images/practice/heart.svg", class:"practice--image", alt:"Heart Symbol" 
           %h2.practice--inner-text
             I'm passionate about programming.
 
         .practice--box
-          = image_tag "/images/clock.svg", class:"practice--image", alt:"Clock Symbol" 
+          = image_tag "/images/practice/clock.svg", class:"practice--image", alt:"Clock Symbol" 
           %h2.practice--inner-text
             I continue learning on my own time.</h2>
 
         .practice--box
-          = image_tag "/images/directed.svg", class:"practice--image", alt:"Self Directed Symbol" 
+          = image_tag "/images/practice/directed.svg", class:"practice--image", alt:"Self Directed Symbol" 
           %h2.practice--inner-text
             I'm self directed and persistent.
 
         .practice--box
-          = image_tag "/images/balloons.svg", class:"practice--image", alt:"Balloons Symbol" 
+          = image_tag "/images/practice/balloons.svg", class:"practice--image", alt:"Balloons Symbol" 
           %h2.practice--inner-text
             Fun at parties.
 
@@ -50,9 +50,23 @@ layout: main
       .project-wrapper--header
         Relevant Projects
 
-      - data.projects.select { |p| p.featured }.each do |p| 
-        = partial('project', locals: p) 
+      - projects_including_skills { |p| p.featured }.each do |p| 
+        = partial('/projects/project', locals: { project: p }) 
 
       .project-wrapper--footer
-        = link_to "projects.html", class:"project--view-more" do
+        = link_to "/projects.html", class:"project--view-more" do
           View All Projects
+
+%section
+
+  .skill-wrapper
+    .skill-wrapper--inner-section
+      .skill-wrapper--header
+        Relevant Skills
+
+      - skills_including_projects.select { |p| p.featured }.each do |p| 
+        = partial('skills/skill', locals: {skill: p} ) 
+
+      .skill-wrapper--footer
+        = link_to "/skills.html", class:"project--view-more" do
+          View All Skills

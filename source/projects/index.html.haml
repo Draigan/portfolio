@@ -1,0 +1,10 @@
+---
+title: Projects
+layout: main
+---
+
+
+%h1 Projects
+
+- projects_using(slug_filter).each do |p| 
+  = partial('projects/project', locals: { project: p } ) 

@@ -1,0 +1,28 @@
+---
+title: Project 
+layout: main
+---
+.project-view
+  %h1.project-view-title= project.title
+  
+  %span.project-view--date  
+    = "Created At: #{project.created_at} - Updated At:" 
+
+    - if project.updated_at.nil? 
+      =  "Ongoing"
+    - else 
+      = project.updated_at 
+
+  %p.project-view--description
+    = project.description  
+
+  .project-view--featured-image-wrapper
+    = image_tag "/images/#{project.image}", class: "project-view--featured-image", alt: project.alt
+
+
+  %p.project-view--long-description= project.long_description 
+  = link_to project.github_url, class:"btn -black", target:"_blank", rel:"noopener" do 
+    %span.btn--text
+      Github
+
+

@@ -1,0 +1,11 @@
+---
+title: Skills
+layout: main
+---
+
+
+%h1 Tech & Skills
+
+- skills_including_projects.each do |s| 
+  = partial('skills/skill', locals: { skill: s } ) 
+
