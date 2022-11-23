@@ -4,25 +4,25 @@ cache:
   paths:
   - vendor
 
-test:
-  script:
+.build_script: &build_script 
   - apt-get update -yqqq
   - apt-get install -y nodejs
   - bundle install --path vendor
-  - bundle exec middleman build
+  - mkdir -p public/assets
+  - bundle exec middleman build --build-dir=public --http-prefix=/portfolio
+  - cp -r source/assets public/assets
+
+test:
+  script: *build_script
   rules:
     - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
 
 pages:
-  script:
-  - apt-get update -yqqq
-  - apt-get install -y nodejs
-  - bundle install --path vendor
-  - mkdir public
-  - bundle exec middleman build --build-dir=public
+  script: *build_script
   artifacts:
     paths:
     - public
   rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
-      when: manual
+    - when: manual
+    # - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    #   when: manual

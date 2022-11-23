@@ -40,6 +40,8 @@ bundle exec middleman --watcher-force-polling --watcher-latency=3
 Local production build:
 ```
 bundle exec middlemand build
+
+# If you changed something in the assets folder, also execute the following commands:
 rm -rf <path-to-repo>/build/assets
-cp <path-to-repo>/source/assets <path-to-repo>/build/assets
+cp -r <path-to-repo>/source/assets <path-to-repo>/build/assets
 ```

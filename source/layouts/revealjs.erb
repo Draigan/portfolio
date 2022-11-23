@@ -7,20 +7,15 @@
 
 		<title><%= current_page.data.title || "Middleman" %></title>
 
-		<link rel="stylesheet" href="assets/revealjs/dist/reset.css">
-		<link rel="stylesheet" href="assets/revealjs/dist/reveal.css">
-		<link rel="stylesheet" href="assets/revealjs/dist/theme/blood.css">
-
+    <%= stylesheet_link_tag "/assets/revealjs/dist/reset.css" %>
+    <%= stylesheet_link_tag "/assets/revealjs/dist/reveal.css" %>
+    <%= stylesheet_link_tag "/assets/revealjs/dist/theme/blood.css" %>
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="assets/revealjs/plugin/highlight/monokai.css">
+    <%= stylesheet_link_tag "/assets/revealjs/plugin/highlight/monokai.css" %> 
 
-    	<link href="stylesheets/site.css" rel="stylesheet" />
-    	<script src="javascripts/site.js"></script>
+    <%= stylesheet_link_tag "/stylesheets/reveal.css" %> 
+    <%= javascript_include_tag "/javascripts/reveal.js", defer: true %>  
 
-		<!-- <script src="assets/animcube3/AnimCube3.js"></script> -->
-
-		<script src="assets/roofpig/jquery.min.js"></script>
-		<script src="assets/roofpig/roofpig_and_three.min.js"></script>
 	</head>
 	<body>
 		<div class="reveal">
@@ -30,38 +25,24 @@
 			</div>
 		</div>
 
-		<script src="assets/revealjs/dist/reveal.js"></script>
-		<script src="assets/revealjs/plugin/notes/notes.js"></script>
-		<script src="assets/revealjs/plugin/markdown/markdown.js"></script>
-		<script src="assets/revealjs/plugin/highlight/highlight.js"></script>
-		<script src="assets/revealjs/plugin/math/math.js"></script>
+    <%= javascript_include_tag"/assets/revealjs/dist/reveal.js" %>  
+    <%= javascript_include_tag"/assets/revealjs/plugin/notes/notes.js" %>  
+    <%= javascript_include_tag"/assets/revealjs/plugin/highlight/highlight.js" %>  
+    <%= javascript_include_tag"/assets/revealjs/plugin/math/math.js" %>  
+    <%# javascript_include_tag"assets/revealjs/plugin/markdown/markdown.js" %>   
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-				disableLayout: true,
-				totalTime: 1800,
-				keyboard: {
-					70: null, // F
-					73: () => { Reveal.getPlugin('notes').open() }, // I
-					83: null, // S
-					86: null, // V
-				},
-
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+				plugins: [  RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+        <%# markdown handled by middleman, add revealmarkdown to plugins RevealMarkdown, %> 
 			});
-			// Reveal.on('slidechanged', event => {
-			// 	let current = Array.from(Reveal.getCurrentSlide().querySelectorAll('.roofpig'))
-			// 	let all = Array.from(document.querySelectorAll('.roofpig'))
-			// 	let inactive = Array.from(all).filter(x => !Array.from(current).includes(x))
-			// 	inactive.forEach remove
-			// 	current.forEach initialize
-			// })
 			
 		</script>
 		
 	</body>
 </html>
+
