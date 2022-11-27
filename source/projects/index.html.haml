@@ -3,8 +3,26 @@ title: Projects
 layout: main
 ---
 
+.project-page-inner-section
+  .project-page--left-column
+    .project-page--title
+      %h1
+        - if slug_filter != nil
+          = "Projects Using"
+          = slug_filter
+        - else
+          = "All Projects"
+    - projects_using(slug_filter).each do |p| 
+      = partial('projects/project', locals: { project: p } ) 
 
-%h1 Projects
+  .project-page--right-column
+    %ul(up-nav)
+      %li
+        = link_to "/projects.html", :'up-history' => true, :'up-target' => ".project-page--left-column" do
+          All projects 
+      - skills_using(nil).sort_by { |skill| skill.name }.each do |s| 
+        - if s.projects.size > 0
+          %li
+            = link_to "/projects/using/#{s.slug}.html", :'up-history' => true, :'up-target' => ".project-page--left-column" do
+              = "#{s.name}"
 
-- projects_using(slug_filter).each do |p| 
-  = partial('projects/project', locals: { project: p } ) 

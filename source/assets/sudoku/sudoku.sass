@@ -1,0 +1,85 @@
+.sudoku___
+  width: 100%
+  height: 100%
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.sudoku___board
+  display: grid
+  aspect-ratio: 1 / 1
+  width: 55%
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.8)
+
+.sudoku___board--cell
+  font-size: 1 em
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  align-items: center
+  font-weight: 700
+  color: black
+  border: 1px solid black
+
+  -webkit-user-select: none
+  /* Safari */
+  -ms-user-select: none
+  /* IE 10 and IE 11 */
+  user-select: none
+  /* Standard syntax */
+
+.sudoku___panel 
+  flex: 1
+  margin-left: 20px
+  margin-right: 10px
+  height: 24em
+  display: grid
+  gap: 4px
+  grid-template-columns: 1fr 1fr 1fr
+  border-radius: 9px
+  -webkit-user-select: none
+  /* Safari */
+  -ms-user-select: none
+  /* IE 10 and IE 11 */
+  user-select: none
+  /* Standard syntax */
+
+.sudoku___panel > div 
+  display: flex
+  border: 1px solid black
+  align-items: center
+  justify-content: center
+  border-radius: 9px
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.8)
+
+.sudoku___panel > div:hover
+  background-color: #b9e1e1
+
+.sudoku___panel > div:active
+  background-color: #d7f7f7
+
+
+.sudoku___panel--button-new-game
+  width: 100%
+  grid-column: span 3
+
+.sudoku___panel--button-notes
+  width: 100%
+  grid-column: span 3 
+
+.sudoku___panel--button-erase
+  width: 100%
+  grid-column: span 3 
+
+
+.sudoku___board--cell.-hidden 
+  display: none
+
+.sudoku___board--cell.-highlight
+  background-color: #b2d8d8
+
+.sudoku___board--cell.-center-highlight
+  background-color: #66b2b2
+

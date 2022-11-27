@@ -6,6 +6,7 @@
   slug: chess
   github_url: https://github.com/draigan/chess
   alt: Chessboard
+  custom_content: false
   featured: true
   description: |
             Aliquam erat volutpat. Pellentesque a lectus malesuada, facilisis mi ultricies,
@@ -24,6 +25,7 @@
   slug: toronto-landtrust-bot
   github_url: https://github.com/draigan/toronto_land_trust
   alt: Toronto Landtrust Logo
+  custom_content: false
   featured: true
   description: |
             Aliquam erat volutpat. Pellentesque a lectus malesuada, facilisis mi ultricies,
@@ -42,6 +44,7 @@
   slug: sudoku
   github_url: https://github.com/draigan/sudoku
   alt: Sudoku Board
+  custom_content: true
   featured: true 
   description: |
             Aliquam erat volutpat. Pellentesque a lectus malesuada, facilisis mi ultricies,
@@ -60,6 +63,7 @@
   slug: pass_generator
   github_url: https://github.com/draigan/password_generator
   alt: Password Generator
+  custom_content: false
   featured: false
   description: |
             Aliquam erat volutpat. Pellentesque a lectus malesuada, facilisis mi ultricies,
@@ -79,6 +83,7 @@
   slug: calculator
   github_url: https://github.com/draigan/calculator
   alt: Calculator 
+  custom_content: false
   featured: false
   description: |
             Aliquam erat volutpat. Pellentesque a lectus malesuada, facilisis mi ultricies,

@@ -2,13 +2,11 @@
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
-
 activate :livereload
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 configure :build do
-  # set :http_prefix,"/portfolio"
   # don't process reveal.js, because it was copied to build/ manually
   ignore 'assets/*'
   # and protect it from being deleted on build
@@ -26,7 +24,10 @@ require "helpers/data_helpers"
 include DataHelpers
 helpers DataHelpers
 
-proxy "/projects.html", "/projects/index.html", locals:  {slug_filter: nil}  , :ignore => true
+require "helpers/asset_helpers"
+helpers AssetHelpers
+
+proxy "/projects.html", "/projects/index.html", locals: {slug_filter: nil}  , :ignore => true
 
 data.skills.each do |s|
   proxy "/projects/using/#{s.slug}.html", "/projects/index.html", locals: { slug_filter: s.slug } , :ignore => true

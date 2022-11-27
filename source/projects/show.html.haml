@@ -25,4 +25,6 @@ layout: main
     %span.btn--text
       Github
 
-
+  .project-view--custom-content
+    - if project.custom_content
+      = partial("projects/custom_content/#{project.slug}", locals: project) 
