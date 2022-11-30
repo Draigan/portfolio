@@ -1,12 +1,13 @@
 module DataHelpers 
   def projects_including_skills
-    @result ||= data.projects.map do |project| 
+    data.projects.map do |project| 
       array_of_matches = data.projects_skills.select { | sp | sp.project_id == project.id }
       array_of_skills = array_of_matches.map { |item| data.skills.find { |skill| skill.id == item.skill_id} }
-      project.skills = array_of_skills
-      project
+
+      project_copy = Marshal.load(Marshal.dump(project))
+      project_copy.skills = array_of_skills
+      project_copy
     end
-    @result
   end
 
   def projects_using(skill_param)
@@ -15,13 +16,14 @@ module DataHelpers
   end
 
   def skills_including_projects
-    @result_2 ||= data.skills.map do |skill| 
+    data.skills.map do |skill| 
       array_of_matches = data.projects_skills.select { | sp | sp.skill_id == skill.id }
       array_of_projects = array_of_matches.map { |item| data.projects.find { |project| project.id == item.project_id} }
-      skill.projects = array_of_projects
-      skill
+
+      skill_copy = Marshal.load(Marshal.dump(skill))
+      skill_copy.projects = array_of_projects
+      skill_copy
     end
-    @result_2
   end
 
   def skills_using(project_param)
