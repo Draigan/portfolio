@@ -16,3 +16,11 @@ group :development do
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
 end
+
+group :test do
+  gem 'puma'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'rspec'
+  gem 'capybara'
+end
