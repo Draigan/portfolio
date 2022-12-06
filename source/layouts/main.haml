@@ -25,8 +25,8 @@
           %nav.header--inner-section
             = link_to "/index.html" do 
               %h1 Draigan Le Febvre
-            .header--menu(up-nav)
-              %ul.header--menu-ul
+            .menu(up-nav)
+              %ul.menu--ul
                 %li
                   = link_to "home", "/index.html", 'up-layer': "root"
                 %li
@@ -39,12 +39,12 @@
                   = link_to "contact", "/contact.html", 'up-layer': "root"
                 %li
                   = link_to "https://github.com/draigan", target:"_blank", rel:"noopener" do  
-                    = image_tag "GitHub.png", class:"header--icon", alt:"github" 
+                    = image_tag "GitHub.png", class:"menu--icon", alt:"github" 
 
 
              
-            = link_to "/index.html", class:"header--menu-link-div", :'up-layer' => "new drawer", :'up-target' => ".header--menu-ul"  do 
-              = image_tag "/images/bars.svg", class:"header--menu-hamburger-image", alt:"Navigation" 
+            = link_to "/index.html", class:"menu--hamburger-div", :'up-layer' => "new drawer", :'up-target' => ".menu--ul"  do 
+              = image_tag "/images/bars.svg", class:"menu--hamburger-image", alt:"Navigation" 
 
 
       %main.layout--main
