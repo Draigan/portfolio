@@ -52,7 +52,7 @@ export class Interface {
   erase() {
     this.currentNumberWrapper =
       this.numberWrappers[this.currentCell[0]][this.currentCell[1]];
-    this.currentNumberWrapper.classList.add("-highlight");
+    this.currentNumberWrapper.classList.add("-hidden");
   }
 
   eventListeners() {

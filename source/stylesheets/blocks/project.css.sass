@@ -1,42 +1,60 @@
+@import ../_variables
+
 .project 
-  display: flex
-  padding: 20px
-  background-color: white
-  margin-bottom: 10px
-
-.project--textarea 
-  padding: 15px
-
-.project--view-more 
-  font-size: 20px
-  padding: 5px
+  display: grid
+  grid-template-areas: "image heading buttons""image description buttons""image skills-wrapper buttons"
+  // "image heading        buttons"
+  // "image description    buttons" 
+  // "image skills-wrapper buttons"
+  grid-template-columns: 200px 1fr auto
+  padding: $spacer-3
+  background-color: $white-1
+  margin-bottom: $spacer-3
+  gap: $spacer-2
 
 .project--heading 
+  margin: 0
   text-transform: uppercase
+  grid-area: heading
+
+.project--description
+  grid-area: description
+
+.project--skills-wrapper
+  grid-area: skills-wrapper
 
 .project--buttons 
   display: flex
   flex-direction: column
-  justify-content: center
+  justify-content: flex-start
   align-items: center
-
-.project--inner-section 
-  border: 2px solid black
-  border-radius: 15px
-  background-color: black
-  width: 1200px
-  margin: auto
-
-.project--header 
-  font-size: 28px
-  padding: 10px
-  text-align: center
-  color: lightgray
+  grid-area: buttons
 
 .project--image 
-  width: 250px
-  border: 2px solid black
+  max-width: 15rem
+  grid-area: image
+  img
+    width: 100%
 
 .project--skill-image 
-  width: 50px
+  width: 2.5rem
+
+.project--view-more 
+  font-size: $font-size-xs
+
+@media screen and (max-width: 600px) 
+  .project 
+    grid-template-areas: "heading heading" "image image" "skills-wrapper skills-wrapper""description description""buttons buttons"
+    //"heading                heading" 
+    //"image                    image" 
+    //"skills-wrapper  skills-wrapper" 
+    //"description        description" 
+    //"buttons                buttons"
+
+    text-align: center
+    width: 100%
+    padding: 0
+
+  .project--image
+    margin: auto
 

@@ -60,7 +60,7 @@ export class Sudoku {
           this.currentNumberWrapper =
             this.numberWrapper = this.nodes.numberWrappers[i][j];
 
-          this.currentNumberWrapper.classList.remove("sudoku___hidden");
+          this.currentNumberWrapper.classList.remove("-hidden");
         }
       }
     }

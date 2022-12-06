@@ -1,28 +1,36 @@
 ---
 title: Projects
 layout: main
+description: Draigan Le Febvre's Projects 
+og_title: Draigan's Projects
+og_url: https://draigan.com/projects.html
+og_type: website
+og_image: none
 ---
 
-.project-page-inner-section
-  .project-page--left-column
-    .project-page--title
-      %h1
-        - if slug_filter != nil
-          = "Projects Using"
-          = slug_filter
-        - else
-          = "All Projects"
-    - projects_using(slug_filter).each do |p| 
-      = partial('projects/project', locals: { project: p } ) 
+%section
+  .project-page--title
+    %h1
+      - if slug_filter != nil
+        = "Projects Using"
+        = slug_filter
+      - else
+        = "All Projects"
+  .project-page-inner-section
+    .project-page--left-column
+      - projects_using(slug_filter).each do |p| 
+        = partial('projects/project', locals: { project: p } ) 
 
-  .project-page--right-column
-    %ul(up-nav)
-      %li
-        = link_to "/projects.html", :'up-history' => true, :'up-target' => ".project-page--left-column" do
-          All projects 
-      - skills_using(nil).sort_by { |skill| skill.name }.each do |s| 
-        - if s.projects.size > 0
-          %li
-            = link_to "/projects/using/#{s.slug}.html", :'up-history' => true, :'up-target' => ".project-page--left-column" do
-              = "#{s.name}"
+    .project-page--right-column
+      %h5
+        Filter By Skill
+      %ul(up-nav)
+        %li
+          = link_to "/projects.html", :'up-history' => true, :'up-target' => ".project-page--left-column .project-page--title" do
+            All projects 
+        - skills_using(nil).sort_by { |skill| skill.name }.each do |s| 
+          - if s.projects.size > 0
+            %li
+              = link_to "/projects/using/#{s.slug}.html", :'up-history' => true, :'up-target' => ".project-page--left-column .project-page--title" do
+                = "#{s.name}"
 

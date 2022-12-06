@@ -6,6 +6,8 @@ layout: main
 
 %h1 Tech & Skills
 
-- skills_including_projects.each do |s| 
-  = partial('skills/skill', locals: { skill: s } ) 
+.skill-wrapper
+  .skill-wrapper--inner-section.-with-description
+    - skills_including_projects.each do |s| 
+      = partial('skills/skill', locals: { skill: s, bem_modifier_skill_description: "-with-description" } ) 
 

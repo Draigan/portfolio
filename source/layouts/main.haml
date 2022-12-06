@@ -2,20 +2,31 @@
 %html(lang="en")
 
   %head
+    - if content_for? :open_graph
+      = yield_content :open_graph
+    - else
+      %meta{content: current_page.data.description, name: "og:description"}
+      %meta{content: current_page.data.og_title, property: "og:title"}
+      %meta{content: current_page.data.og_url, property: "og:url"}
+      %meta{content: current_page.data.og_image, property: "og:image"}
+      %meta{content: current_page.data.og_type, property: "og:type"}
+
     %meta(charset="UTF-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=edge")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    = favicon_tag "favicon.ico"
 
     %title
       = current_page.data.title 
 
 
-    = stylesheet_link_tag "assets/unpoly/unpoly" 
+    = stylesheet_link_tag "/assets/unpoly/unpoly" 
     = stylesheet_link_tag "normalize" 
     = stylesheet_link_tag "styles" 
-    = stylesheet_link_tag "assets/sudoku/sudoku" 
+    = stylesheet_link_tag "/assets/sudoku/sudoku" 
     = bem_blocks
-    = javascript_include_tag "assets/unpoly/unpoly", defer: true, type: "module"
+    = javascript_include_tag "/assets/unpoly/unpoly", defer: true, type: "module"
     = javascript_include_tag "unpoly_config", defer: true, type: "module"
     = unpoly_compilers
   %body
@@ -25,26 +36,27 @@
           %nav.header--inner-section
             = link_to "/index.html" do 
               %h1 Draigan Le Febvre
-            .header--menu(up-nav)
-              %ul.header--menu-ul
-                %li
-                  = link_to "home", "/index.html", 'up-layer': "root"
-                %li
-                  = link_to "projects", "/projects.html",'up-layer': "root", 'up-alias': "/projects/*"
-                %li
-                  = link_to "resume", "/resume.html", 'up-layer': "root"
-                %li
-                  = link_to "tech & skills", "/skills.html", 'up-layer': "root"
-                %li
-                  = link_to "contact", "/contact.html", 'up-layer': "root"
-                %li
-                  = link_to "https://github.com/draigan", target:"_blank", rel:"noopener" do  
-                    = image_tag "GitHub.png", class:"header--icon", alt:"github" 
+            .header--menu
+              .menu(up-nav)
+                %ul.menu--ul
+                  %li
+                    = link_to "home", "/index.html", 'up-layer': "root"
+                  %li
+                    = link_to "projects", "/projects.html",'up-layer': "root", 'up-alias': "/projects/*"
+                  %li
+                    = link_to "resume", "/resume.html", 'up-layer': "root"
+                  %li
+                    = link_to "tech & skills", "/skills.html", 'up-layer': "root"
+                  %li
+                    = link_to "contact", "/contact.html", 'up-layer': "root"
+                  %li
+                    = link_to "https://github.com/draigan", class:"menu--icon-link", target:"_blank", rel:"noopener" do  
+                      = image_tag "GitHub.png", class:"menu--icon", alt:"github" 
 
 
              
-            = link_to "/index.html", class:"header--menu-link-div", :'up-layer' => "new drawer", :'up-target' => ".header--menu-ul"  do 
-              = image_tag "/images/bars.svg", class:"header--menu-hamburger-image", alt:"Navigation" 
+            = link_to "/index.html", class:"menu--hamburger-link", :'up-layer' => "new drawer", :'up-target' => ".menu--ul"  do 
+              = image_tag "/images/bars.svg", class:"menu--hamburger-image", alt:"Navigation" 
 
 
       %main.layout--main

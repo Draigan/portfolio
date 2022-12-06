@@ -18,7 +18,7 @@
   slug: html
   image: skills/html.png
   alt: HTML Logo
-  featured: true
+  featured: false
   description: |
             Aliquam erat volutpat. Pellentesque a lectus malesuada, facilisis mi ultricies,
             dictum mauris. Cras et mi maximus, facilisis diam sed, iaculis ex.

@@ -2,6 +2,14 @@
 title: Project 
 layout: main
 ---
+
+- content_for :open_graph do
+  %meta{content: project.description, name: "og:description"}
+  %meta{content: project.title, property: "og:title"}
+  %meta{content: current_page.url, property: "og:url"}
+  %meta{content: project.image, property: "og:image"}
+  %meta{content: "website", property: "og:type"}
+
 .project-view
   %h1.project-view-title= project.title
   

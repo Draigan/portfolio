@@ -1,6 +1,11 @@
 ---
 title: Draigan's Portfolio
 layout: main
+description: Draigan's Skills and Projects
+og_title: Draigan's portfolio landing page
+og_url: https://draigan.com/
+og_type: website
+og_image: chess.png
 ---
 %section
   .hero
@@ -23,51 +28,53 @@ layout: main
         Why Hire Me?
 
       .practice--box-container
-        .practice--box
-          = image_tag "/images/practice/heart.svg", class:"practice--image", alt:"Heart Symbol" 
-          %h2.practice--inner-text
-            I'm passionate about programming.
+        .practice--box-sub-container
+          .practice--box
+            = image_tag "/images/practice/heart.svg", class:"practice--image", alt:"Heart Symbol" 
+            %h2.practice--inner-text
+              I'm passionate about programming.
 
-        .practice--box
-          = image_tag "/images/practice/clock.svg", class:"practice--image", alt:"Clock Symbol" 
-          %h2.practice--inner-text
-            I continue learning on my own time.</h2>
+          .practice--box
+            = image_tag "/images/practice/clock.svg", class:"practice--image", alt:"Clock Symbol" 
+            %h2.practice--inner-text
+              I continue learning on my own time.</h2>
 
-        .practice--box
-          = image_tag "/images/practice/directed.svg", class:"practice--image", alt:"Self Directed Symbol" 
-          %h2.practice--inner-text
-            I'm self directed and persistent.
+        .practice--box-sub-container
+          .practice--box
+            = image_tag "/images/practice/directed.svg", class:"practice--image", alt:"Self Directed Symbol" 
+            %h2.practice--inner-text
+              I'm self directed and persistent.
 
-        .practice--box
-          = image_tag "/images/practice/balloons.svg", class:"practice--image", alt:"Balloons Symbol" 
-          %h2.practice--inner-text
-            Fun at parties.
+          .practice--box
+            = image_tag "/images/practice/balloons.svg", class:"practice--image", alt:"Balloons Symbol" 
+            %h2.practice--inner-text
+              Fun at parties.
 
 
 %section
 
   .project-wrapper
-    .project-wrapper--inner-section
-      .project-wrapper--header
-        Relevant Projects
+    .project-wrapper--header
+      Relevant Projects
 
+    .project-wrapper--inner-section
       - projects_including_skills { |p| p.featured }.each do |p| 
         = partial('/projects/project', locals: { project: p }) 
 
-      .project-wrapper--footer
-        = link_to "/projects.html", class:"project--view-more" do
-          View All Projects
+    .project-wrapper--footer
+      = link_to "/projects.html", class:"project--view-more" do
+        View All Projects
 
 %section
 
   .skill-wrapper
+    .skill-wrapper--header
+      Relevant Skills
     .skill-wrapper--inner-section
-      .skill-wrapper--header
-        Relevant Skills
 
       - skills_including_projects.select { |p| p.featured }.each do |p| 
-        = partial('skills/skill', locals: {skill: p} ) 
+        = partial('skills/skill', locals: {skill: p, bem_modifier_skill_description: "" } ) 
 
-      .skill-wrapper--footer
-        = link_to "/skills.html", class:"project--view-more" do
-          View All Skills
+    .skill-wrapper--footer
+      = link_to "/skills.html", class:"project--view-more" do
+        View All Skills

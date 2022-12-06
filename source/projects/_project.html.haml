@@ -1,25 +1,26 @@
 .project
-  = link_to "/projects/#{project.slug}.html" do
-    = image_tag "/images/#{project.image}", class: "project--image", alt: project.alt
+  .project--image
+    = link_to "/projects/#{project.slug}.html" do
+      = image_tag "/images/#{project.image}", alt: project.alt
 
-  .project--textarea
-    %h2.project--heading
-      = project.title  
 
-    %p
-      = project.description 
+  %h2.project--heading
+    = project.title  
 
-    .project--skills-wrapper
-      - project.skills.each do |skill|
-        = link_to "/skills/#{skill.slug}.html"  do 
-          = image_tag "/images/#{skill.image}", class: "project--skill-image", alt: skill.alt
+  %p.project--description
+    = project.description 
+
+  .project--skills-wrapper
+    - project.skills.each do |skill|
+      = link_to "/skills/#{skill.slug}.html"  do 
+        = image_tag "/images/#{skill.image}", class: "project--skill-image", alt: skill.alt
 
 
   .project--buttons
     - if project.custom_content
       = link_to "/projects/#{project.slug}.html",  :class => "btn -black", :'up-layer' => "new", :'up-target' => ".project-view--custom-content"  do 
         %span.btn--text
-          Explore
+          Live View
 
     = link_to project.github_url, class:"btn -black", target: "_blank", rel: "noopener" do 
 

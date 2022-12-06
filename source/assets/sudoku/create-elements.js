@@ -10,6 +10,7 @@ export class Creator {
     //Create Board & Append
     this.board = this.createNode(this.container, "sudoku___board");
 
+    // Arrays for nodes
     this.cells = [];
     this.noteGridCells = [];
     this.numberWrappers = [];

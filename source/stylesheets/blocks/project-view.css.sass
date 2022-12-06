@@ -1,34 +1,31 @@
+@import ../_variables
+
 .project-view 
-  margin: 25px auto
-  width: 1200px
+  margin: $spacer-5 auto
+  width: $inner-section
 
 .project-view--title 
   display: inline
+  margin-bottom: $spacer-3
 
 .project-view--date 
   display: inline
   float: right
-  font-weight: 500
-
-.project-view--description 
-  margin-bottom: 25px
 
 .project-view--featured-image-wrapper 
-  width: 400px
-  margin-right: 25px
+  margin-right: $spacer-3
   float: left
 
 .project-view--featured-image 
-  width: 400px
+  width: 22rem
 
 .project-view--long-description::first-letter 
-  color: white
-  background-color: black
-  border-radius: 2px
+  color: $white-1
+  +border(black)
+  background-color: $black-1
   box-shadow: 3px 3px 0  rgb(0, 125, 125)
   font-size: 250%
   padding: 6px 3px
   margin-right: 6px
   float: left
 
-.project-view--custom-content
