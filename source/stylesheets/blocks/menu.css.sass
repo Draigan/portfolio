@@ -1,14 +1,16 @@
+@import ../_variables
+
 .menu 
   display: flex
   align-items: center
 
+  //This isnt wherre Im suppose to style this is it?
   .up-current
-    color: #00c0c0
+    color: $teal-3
 
   ul  
     display: flex
     gap: 20px
-    margin-right: 4px
     align-items: center
     list-style: none
     
@@ -25,7 +27,7 @@
     width: 100%
     transform: scaleX(0)
     height: 1px
-    background: #fff
+    background: $teal-3
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)
     transform-origin: right center
 
@@ -35,10 +37,10 @@
     transition-duration: 0.4s
 
 .menu--icon 
-  max-width: 34px
-  max-height: 34px
+  max-width: 2rem
+  max-height: 2rem
 
-.menu--link-div
+.menu--hamburger-link
   display: none
 
 .menu--hamburger-image
@@ -47,7 +49,6 @@
   filter: invert(94%) sepia(0%) saturate(0%) hue-rotate(288deg) brightness(106%) contrast(109%)
 
 
-$medium: 900px
 
 @media screen and (max-width: $medium) 
   .menu 
