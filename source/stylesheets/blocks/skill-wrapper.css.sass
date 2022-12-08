@@ -12,10 +12,12 @@
   text-transform: uppercase
 
 .skill-wrapper--inner-section 
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(20rem,1fr))
   border: $border-width solid $black-1
   border-radius: $border-radius
   background-color: $white-2
-  width: $inner-section
+  max-width: $inner-section
   margin: auto
 
 .skill-wrapper--footer 

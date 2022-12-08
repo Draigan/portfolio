@@ -1,42 +1,69 @@
 @import ../_variables
 
 .project 
-  display: flex
+  display: grid
+  grid-template-areas: "image heading buttons""image description buttons""image skills-wrapper buttons"
+  // "image heading        buttons"
+  // "image description    buttons" 
+  // "image skills-wrapper buttons"
+  grid-template-columns: 200px 1fr auto
   padding: $padding-medium
   background-color: $white-1
   margin-bottom: $margin-bottom-small
 
-.project--textarea 
-  display: flex
-  padding: 0 $padding-medium 0 $padding-medium
-  flex-direction: column
-  justify-content: flex-start
-
-.project--view-more 
-  font-size: $font-size-2
-  padding: .3rem
-
 .project--heading 
   margin: 0
   text-transform: uppercase
+  grid-area: heading
+
+// .project--textarea 
+//   display: flex
+//   padding: 0 $padding-medium 0 $padding-medium
+//   flex-direction: column
+//   justify-content: flex-start
+
+.project--description
+  grid-area: description
+
+.project--skills-wrapper
+  grid-area: skills-wrapper
+
 
 .project--buttons 
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
+  grid-area: buttons
 
-.project--inner-section 
-  border: $border-width solid black
-  border-radius: $border-radius
-  background-color: black
-  width: $inner-section
-  margin: auto
 
 .project--image 
-  width: 15rem
+  max-width: 15rem
   border: $border-width solid black
+  grid-area: image
+  img
+    width: 100%
 
 .project--skill-image 
   width: 2.5rem
+
+.project--view-more 
+  font-size: $font-size-2
+  padding: .3rem
+
+@media screen and (max-width: 600px) 
+  .project 
+    grid-template-areas: "heading skills-wrapper" "image image" "description description""buttons buttons"
+    width: 100%
+    padding: 0
+
+  .project--description
+
+  .project--heading 
+
+  .project--buttons 
+
+  .project--skills-wrapper
+
+  .project--view-more 
 

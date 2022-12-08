@@ -8,10 +8,11 @@
   margin-bottom: $margin-between-section
 
 .practice--inner-section 
-  width: $inner-section
+  max-width: $inner-section
 
 .practice--box-container 
   display: flex
+  flex-wrap: wrap
   margin: auto
   justify-content: space-between
   gap: 4rem
@@ -24,8 +25,19 @@
   margin: 0
 
 .practice--box
+  flex: 1 1 200px
   width: 20%
 
-.practice--image 
-  width: 10rem 
 
+
+.practice--image 
+  width: 100%
+
+@media screen and (max-width: 600px) 
+
+  .practice--box-container
+    display: grid
+    grid-template-columns: 1fr
+
+  .practice--box
+    width: 100%

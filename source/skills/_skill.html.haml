@@ -1,28 +1,25 @@
-.skill
-  = link_to "/skills/#{skill.slug}.html" do
-    = image_tag "/images/#{skill.image}", class: "skill--image", alt: skill.alt
+.skill{class: bem_modifier}
+  .skill--image
+    = link_to "/skills/#{skill.slug}.html" do
+      = image_tag "/images/#{skill.image}", class: "skill--image", alt: skill.alt
 
-  .skill--textarea
-    %h2.skill--heading
-      = skill.name  
+  %h2.skill--heading
+    = skill.name  
 
-    %p
-      = skill.description 
+  %p.skill--description
+    = skill.description 
 
-    .skill--projects-wrapper
-      %span 
-        = link_to "/projects/using/#{skill.slug}.html", 'up-layer': "new", class:"btn -black" do 
-          %span.btn--text
-            view 
-            = skill.projects.size 
-            - if skill.projects.size > 1
-              = "projects that use"
-            - else
-              = "project that uses"
-            = skill.name 
 
   .skill--buttons
     = link_to "/skills/#{skill.slug}.html", class:"btn -black" do 
       %span.btn--text
         Explore
+
+    = link_to "/projects/using/#{skill.slug}.html", 'up-layer': "new", class:"btn -black" do 
+      %span.btn--text
+        = skill.projects.size 
+        - if skill.projects.size > 1
+          = "projects"
+        - else
+          = "project"
 
