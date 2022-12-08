@@ -1,14 +1,18 @@
+@import ../_variables
+
 /* BUTTONS */
 .btn 
   position: relative
   display: inline-block
   cursor: pointer
   text-align: center
-  min-width: 185px
-  height: 50px
-  padding: 15px 50px
-  margin-top: 10px
-  border: 2px solid white
+  min-width: 8rem
+  line-height: 0
+  padding: 20px 
+  margin: .4rem
+  margin-left: 0
+  border: $border-width solid $white-1
+  border-radius: $border-radius
   text-transform: uppercase
   font-weight: 700
 
@@ -18,7 +22,7 @@
   content: ""
   left: 0
   bottom: 0
-  background-color: white
+  background-color: $white-1
   height: 100%
   width: 100%
   transform: scaleY(0)
@@ -36,17 +40,17 @@
 
 
 .btn:hover .btn--text 
-  color: black
+  color: $black-1
 
 
-.btn.-black 
-  border: 2px solid black
-  color: black
+.btn.-black
+  border: $border-width solid $black-1
+  color: $black-1
 
 
 .btn.-black:hover .btn--text 
-  color: white
+  color: $white-1
 
 .btn.-black::before 
-  background-color: black
+  background-color: $black-1
 
