@@ -2,6 +2,11 @@
 %html(lang="en")
 
   %head
+    %meta{content: current_page.data.description, name: "description"}/
+    %meta{content: current_page.data.og_title, property: "og:title"}
+    %meta{content: current_page.data.og_url, property: "og:url"}
+    %meta{content: current_page.data.og_image, property: "og:image"}
+    %meta{content: current_page.data.og_type, property: "og:type"}
     %meta(charset="UTF-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=edge")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
