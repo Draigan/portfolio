@@ -1,8 +1,9 @@
 @import ../_variables
 
 .skill-view 
-  margin: 25px auto
-  width: 1200px
+  margin: 1.8rem auto
+  width: $inner-section
+  padding: $padding-small
 
 .skill-view--title 
   display: inline
@@ -10,23 +11,20 @@
 .skill-view--date 
   display: inline
   float: right
-  font-weight: 500
-
-.skill-view--description 
-  margin-bottom: 25px
+  font-weight: $weight-medium
 
 .skill-view--featured-image-wrapper 
-  width: 400px
   margin-right: 25px
   float: left
 
 .skill-view--featured-image 
-  width: 400px
+  width: 22rem
 
 .skill-view--long-description::first-letter 
-  color: white
-  background-color: black
-  border-radius: 2px
+  color: $white-1
+  border-radius: $border-radius
+  background-color: $black-1
+  border-radius: 1px
   box-shadow: 3px 3px 0  rgb(0, 125, 125)
   font-size: 250%
   padding: 6px 3px

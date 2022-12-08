@@ -2,18 +2,22 @@
 
 .project 
   display: flex
-  padding: 20px
-  background-color: white
-  margin-bottom: 10px
+  padding: $padding-medium
+  background-color: $white-1
+  margin-bottom: $margin-bottom-small
 
 .project--textarea 
-  padding: 15px
+  display: flex
+  padding: 0 $padding-medium 0 $padding-medium
+  flex-direction: column
+  justify-content: flex-start
 
 .project--view-more 
-  font-size: 20px
-  padding: 5px
+  font-size: $font-size-2
+  padding: .3rem
 
 .project--heading 
+  margin: 0
   text-transform: uppercase
 
 .project--buttons 
@@ -23,22 +27,16 @@
   align-items: center
 
 .project--inner-section 
-  border: 2px solid black
-  border-radius: 15px
+  border: $border-width solid black
+  border-radius: $border-radius
   background-color: black
-  width: 1200px
+  width: $inner-section
   margin: auto
 
-.project--header 
-  font-size: 28px
-  padding: 10px
-  text-align: center
-  color: lightgray
-
 .project--image 
-  width: 250px
-  border: 2px solid black
+  width: 15rem
+  border: $border-width solid black
 
 .project--skill-image 
-  width: 50px
+  width: 2.5rem
 
