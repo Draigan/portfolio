@@ -73,7 +73,7 @@ og_image: chess.png
     .skill-wrapper--inner-section
 
       - skills_including_projects.select { |p| p.featured }.each do |p| 
-        = partial('skills/skill', locals: {skill: p, bem_modifier: ""} ) 
+        = partial('skills/skill', locals: {skill: p, bem_modifier_description: "" } ) 
 
     .skill-wrapper--footer
       = link_to "/skills.html", class:"project--view-more" do

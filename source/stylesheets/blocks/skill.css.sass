@@ -6,6 +6,8 @@
   background-color: $white-1
   margin-bottom: $margin-bottom-small
   grid-template-areas: "image heading""image buttons"
+  // "image heading"
+  // "image buttons" 
   grid-template-columns: auto 1fr
   gap: 1rem
   justify-content: center
@@ -17,22 +19,13 @@
 
 .skill.-with-description
   grid-template-areas: "image heading""image description""image buttons"
+  // "image heading"
+  // "image description"
+  // "image buttons"
   .skill--description
     display: block
   .skill--image
     width: 15rem
-  
-
-
-// .skill--textarea 
-//   display: flex
-//   padding: 0 $padding-medium 0 $padding-medium
-//   flex-direction: column
-//   justify-content: flex-start
-
-// .skill--view-more 
-//   font-size: $font-size-2
-//   padding: .3rem
 
 .skill--heading 
   margin: 0
@@ -46,18 +39,26 @@
   align-items: flex-start
   grid-area: buttons
 
-// .skill--inner-section 
-//   border: $border-width solid black
-//   border-radius: $border-radius
-//   background-color: black
-//   width: $inner-section
-//   margin: auto
 
 .skill--image 
   width: 9rem
   grid-area: image
   img
     width: 100%
-    
 
+@media screen and (max-width: 600px)
+  .skill.-with-description
+    grid-template-areas: "heading heading""image image""description description""buttons buttons"
+    //  "heading heading"
+    //  "image     image"
+    //  "description description"
+    //  "buttons buttons"
+
+    text-align: center
+    .skill--image
+      margin: auto
+      width: 80%
+    .skill--buttons
+      margin: auto
+    
 
