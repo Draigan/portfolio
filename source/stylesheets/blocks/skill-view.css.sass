@@ -1,24 +1,28 @@
 @import ../_variables
 
 .skill-view 
+  display: grid
+  grid-template-areas: "title title""description description""image long-description"
   margin: 1.8rem auto
-  width: $inner-section
+  max-width: $inner-section
   padding: $padding-small
 
 .skill-view--title 
-  display: inline
-
-.skill-view--date 
-  display: inline
-  float: right
-  font-weight: $weight-medium
+  grid-area: title
 
 .skill-view--featured-image-wrapper 
   margin-right: 25px
-  float: left
+  width: 22rem
+  grid-area: image
 
 .skill-view--featured-image 
   width: 22rem
+
+.skill-view--long-description
+  grid-area: long-description
+
+.skill-view--description
+  grid-area: description
 
 .skill-view--long-description::first-letter 
   color: $white-1
@@ -31,4 +35,17 @@
   margin-right: 6px
   float: left
 
+@media screen and (max-width: 900px)
+  .skill-view
+    grid-template-areas: "title image" "description description" "long-description long-description"
+    justify-content: center
+    
+    .skill-view--featured-image
+      width: 30% 
+
+  .skill-view--featured-image-wrapper 
+    width: 100%
+    a
+      display: flex
+      justify-content: flex-end
 
