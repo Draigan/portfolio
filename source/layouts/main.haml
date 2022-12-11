@@ -2,7 +2,7 @@
 %html(lang="en")
 
   %head
-    %meta{content: current_page.data.description, name: "description"}/
+    %meta{content: current_page.data.description, name: "og:description"}/
     %meta{content: current_page.data.og_title, property: "og:title"}
     %meta{content: current_page.data.og_url, property: "og:url"}
     %meta{content: current_page.data.og_image, property: "og:image"}
@@ -30,21 +30,22 @@
           %nav.header--inner-section
             = link_to "/index.html" do 
               %h1 Draigan Le Febvre
-            .menu(up-nav)
-              %ul.menu--ul
-                %li
-                  = link_to "home", "/index.html", 'up-layer': "root"
-                %li
-                  = link_to "projects", "/projects.html",'up-layer': "root", 'up-alias': "/projects/*"
-                %li
-                  = link_to "resume", "/resume.html", 'up-layer': "root"
-                %li
-                  = link_to "tech & skills", "/skills.html", 'up-layer': "root"
-                %li
-                  = link_to "contact", "/contact.html", 'up-layer': "root"
-                %li
-                  = link_to "https://github.com/draigan", target:"_blank", rel:"noopener" do  
-                    = image_tag "GitHub.png", class:"menu--icon", alt:"github" 
+            .header--menu
+              .menu(up-nav)
+                %ul.menu--ul
+                  %li
+                    = link_to "home", "/index.html", 'up-layer': "root"
+                  %li
+                    = link_to "projects", "/projects.html",'up-layer': "root", 'up-alias': "/projects/*"
+                  %li
+                    = link_to "resume", "/resume.html", 'up-layer': "root"
+                  %li
+                    = link_to "tech & skills", "/skills.html", 'up-layer': "root"
+                  %li
+                    = link_to "contact", "/contact.html", 'up-layer': "root"
+                  %li
+                    = link_to "https://github.com/draigan", target:"_blank", rel:"noopener" do  
+                      = image_tag "GitHub.png", class:"menu--icon", alt:"github" 
 
 
              
