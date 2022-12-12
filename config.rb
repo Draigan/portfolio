@@ -37,7 +37,7 @@ data.projects.each do |p|
   proxy "/projects/#{p.slug}.html", "/projects/show.html", locals: { project: p } , :ignore => true
 end
 
-proxy "/skills.html", "/skills/index.html", locals: { bem_modifier_skill_wrapper: "-with-description" }, :ignore => true
+proxy "/skills.html", "/skills/index.html",  :ignore => true
 
 data.skills.each do |s|
   proxy "/skills/#{s.slug}.html", "/skills/show.html", locals: { skill: s } , :ignore => true

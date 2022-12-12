@@ -8,8 +8,6 @@
   alt: Chessboard
   custom_content: false
   featured: true
-  meta_description: |
-            A Chess Game
   description: |
             Aliquam erat volutpat. Pellentesque a lectus malesuada, facilisis mi ultricies,
             dictum mauris. Cras et mi maximus, facilisis diam sed, iaculis ex.
@@ -29,8 +27,6 @@
   alt: Toronto Landtrust Logo
   custom_content: false
   featured: true
-  meta_description: |
-            A Chess Game
   description: |
             Aliquam erat volutpat. Pellentesque a lectus malesuada, facilisis mi ultricies,
             dictum mauris. Cras et mi maximus, facilisis diam sed, iaculis ex.
@@ -50,8 +46,6 @@
   alt: Sudoku Board
   custom_content: true
   featured: true 
-  meta_description: |
-            A Chess Game
   description: |
             Aliquam erat volutpat. Pellentesque a lectus malesuada, facilisis mi ultricies,
             dictum mauris. Cras et mi maximus, facilisis diam sed, iaculis ex.
@@ -71,8 +65,6 @@
   alt: Password Generator
   custom_content: false
   featured: false
-  meta_description: |
-            A Chess Game
   description: |
             Aliquam erat volutpat. Pellentesque a lectus malesuada, facilisis mi ultricies,
             dictum mauris. Cras et mi maximus, facilisis diam sed, iaculis ex.
@@ -93,8 +85,6 @@
   alt: Calculator 
   custom_content: false
   featured: false
-  meta_description: |
-            A Chess Game
   description: |
             Aliquam erat volutpat. Pellentesque a lectus malesuada, facilisis mi ultricies,
             dictum mauris. Cras et mi maximus, facilisis diam sed, iaculis ex.

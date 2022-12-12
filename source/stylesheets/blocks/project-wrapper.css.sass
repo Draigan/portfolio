@@ -1,24 +1,20 @@
 @import ../_variables
 
-.project-wrapper 
-  margin-bottom: $margin-bottom-large
-
 .project-wrapper--header 
-  font-size: $font-size-3
-  padding: $padding-small
+  font-size: $font-size-m
+  padding: $spacer-2
   text-align: center
   color: $black-1
-  font-weight: 700
+  font-weight: bold
   text-transform: uppercase
 
 .project-wrapper--inner-section 
-  border: $border-width solid $black-1
-  border-radius: $border-radius
+  +border(black)
   background-color: $white-2
   max-width: $inner-section
   margin: auto
 
 .project-wrapper--footer 
   text-align: center
-  margin-bottom: $padding-small
-
+  a
+    color: $black-1

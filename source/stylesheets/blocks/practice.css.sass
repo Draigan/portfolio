@@ -5,7 +5,6 @@
   display: flex
   justify-content: center
   text-align: center
-  margin-bottom: $margin-between-section
 
 .practice--inner-section 
   max-width: $inner-section
@@ -16,17 +15,16 @@
   flex-wrap: wrap
 
 .practice--inner-text
-  font-size: $font-size-3
+  font-size: $font-size-m
   grid-area: "inner-text"
 
 .practice--header-text 
-  font-size: $font-size-5
-  margin: 0
+  font-size: $font-size-xxl
 
 .practice--box
   flex: 1 
-  min-width: 25%
-  padding: 4rem
+  min-width: 24.5%
+  padding-inline: $spacer-5
 
 .practice--image
   width: 100%
@@ -35,7 +33,7 @@
 .practice--box-sub-container
   display: flex
   flex-wrap: wrap
-  width: 50%
+  width: 49.5%
 
 @media screen and (max-width: 900px) 
   .practice--box-sub-container
@@ -44,7 +42,7 @@
     flex-wrap: wrap
 
   .practice--box
-    min-width: 50%
+    min-width: 49.5%
     padding: 0
   
   .practice--image

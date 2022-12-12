@@ -1,20 +1,19 @@
 @import ../_variables
 
 .project-view 
-  margin: 1.8rem auto
+  margin: $spacer-5 auto
   width: $inner-section
-  padding: $padding-small
 
 .project-view--title 
   display: inline
+  margin-bottom: $spacer-3
 
 .project-view--date 
   display: inline
   float: right
-  font-weight: $weight-medium
 
 .project-view--featured-image-wrapper 
-  margin-right: 25px
+  margin-right: $spacer-3
   float: left
 
 .project-view--featured-image 
@@ -22,9 +21,8 @@
 
 .project-view--long-description::first-letter 
   color: $white-1
-  border-radius: $border-radius
+  +border(black)
   background-color: $black-1
-  border-radius: 1px
   box-shadow: 3px 3px 0  rgb(0, 125, 125)
   font-size: 250%
   padding: 6px 3px

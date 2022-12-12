@@ -5,16 +5,17 @@
   justify-content: center
   align-items: center
   background: $black-1
-  height: 4.5rem
-
+  padding: $spacer-3
 
 .header--inner-section 
   display: flex
   justify-content: space-between
   align-items: center
   width: $inner-section
-  height: 2.4rem
   background: $black-2
   color: $white-1
   text-transform: uppercase
 
+@media screen and (max-width: $medium) 
+  .header--menu 
+    display: none

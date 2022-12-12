@@ -2,14 +2,14 @@
 
 .skill 
   display: grid
-  padding: $padding-medium
+  padding: $spacer-3
   background-color: $white-1
-  margin-bottom: $margin-bottom-small
+  margin-bottom: $spacer-3
   grid-template-areas: "image heading""image buttons"
   // "image heading"
   // "image buttons" 
   grid-template-columns: auto 1fr
-  gap: 1rem
+  gap: $spacer-2
   justify-content: center
   align-content: center
 
@@ -53,7 +53,6 @@
     //  "image     image"
     //  "description description"
     //  "buttons buttons"
-
     text-align: center
     .skill--image
       margin: auto

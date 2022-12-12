@@ -1,17 +1,14 @@
 @import ../_variables
 
 .project-page-inner-section
-  border: $border-width solid black
-  border-radius: $border-radius
+  +border(black)
   max-width: $inner-section
-  margin: auto
-  margin-top: 3rem
+  margin: $spacer-5 auto
   display: flex
 
 .project-page--title
   text-transform: uppercase
   text-align: center
-  min-height: 4rem
 
 .project-page--left-column
 
@@ -20,7 +17,7 @@
   .up-current
     color: $teal-3
   ul
-    margin: 4rem auto
+    margin: $spacer-5 auto
     display: flex
     flex-direction: column
     padding: 0

@@ -4,20 +4,19 @@
   display: flex
   align-items: center
 
-  //This isnt wherre Im suppose to style this is it?
   .up-current
     color: $teal-3
 
   ul  
     display: flex
-    gap: 20px
+    gap: $spacer-3
     align-items: center
     list-style: none
     
   li 
     position: relative
-    font-weight: 600
-    font-size: 12px
+    font-weight: bold
+    font-size: $font-size-xs * .8
 
   a:after
     content: ""
@@ -37,29 +36,29 @@
     transition-duration: 0.4s
 
 .menu--icon 
-  max-width: 2rem
-  max-height: 2rem
+  width: 2rem
 
 .menu--hamburger-link
   display: none
 
 .menu--hamburger-image
-  height: 2rem
   width: 2rem
   filter: invert(94%) sepia(0%) saturate(0%) hue-rotate(288deg) brightness(106%) contrast(109%)
 
 
 
 @media screen and (max-width: $medium) 
-  .menu 
+  .header--menu 
     display: none
 
   .menu--hamburger-link
     display: block
 
-  .menu--ul 
-    list-style: none
+  up-drawer-box
+    .menu--ul
+      list-style: none
+      padding: 0
     a
-      color: black
+      color: $black-1
       text-transform: uppercase
   

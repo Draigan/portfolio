@@ -1,4 +1,4 @@
-.skill{class: bem_modifier_description}
+.skill{class: bem_modifier_skill_description}
   .skill--image
     = link_to "/skills/#{skill.slug}.html" do
       = image_tag "/images/#{skill.image}", class: "skill--image", alt: skill.alt
@@ -14,12 +14,12 @@
     = link_to "/skills/#{skill.slug}.html", class:"btn -black" do 
       %span.btn--text
         Explore
-
-    = link_to "/projects/using/#{skill.slug}.html", 'up-layer': "new", class:"btn -black" do 
-      %span.btn--text
-        = skill.projects.size 
-        - if skill.projects.size > 1
-          = "projects"
-        - else
-          = "project"
+    - if skill.projects.size > 0 
+      = link_to "/projects/using/#{skill.slug}.html", 'up-layer': "new", class:"btn -black" do 
+        %span.btn--text
+          = skill.projects.size 
+          - if skill.projects.size != 1
+            = "projects"
+          - else
+            = "project"
 

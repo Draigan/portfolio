@@ -54,16 +54,16 @@ og_image: chess.png
 %section
 
   .project-wrapper
-    .project-wrapper--inner-section
-      .project-wrapper--header
-        Relevant Projects
+    .project-wrapper--header
+      Relevant Projects
 
+    .project-wrapper--inner-section
       - projects_including_skills { |p| p.featured }.each do |p| 
         = partial('/projects/project', locals: { project: p }) 
 
-      .project-wrapper--footer
-        = link_to "/projects.html", class:"project--view-more" do
-          View All Projects
+    .project-wrapper--footer
+      = link_to "/projects.html", class:"project--view-more" do
+        View All Projects
 
 %section
 
@@ -73,7 +73,7 @@ og_image: chess.png
     .skill-wrapper--inner-section
 
       - skills_including_projects.select { |p| p.featured }.each do |p| 
-        = partial('skills/skill', locals: {skill: p, bem_modifier_description: "" } ) 
+        = partial('skills/skill', locals: {skill: p, bem_modifier_skill_description: "" } ) 
 
     .skill-wrapper--footer
       = link_to "/skills.html", class:"project--view-more" do
