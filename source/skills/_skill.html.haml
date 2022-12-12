@@ -15,7 +15,7 @@
       %span.btn--text
         Explore
     - if skill.projects.size > 0 
-      = link_to "/projects/using/#{skill.slug}.html", 'up-layer': "new", class:"btn -black" do 
+      = link_to "/projects/using/#{skill.slug}.html", class:"btn -black" do 
         %span.btn--text
           = skill.projects.size 
           - if skill.projects.size != 1
