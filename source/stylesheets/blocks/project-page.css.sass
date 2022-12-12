@@ -1,16 +1,17 @@
 @import ../_variables
 
 .project-page-inner-section
-  +border(black)
   max-width: $inner-section
-  margin: $spacer-5 auto
   display: flex
+  margin: auto
 
 .project-page--title
   text-transform: uppercase
   text-align: center
+  margin: $spacer-5 auto 0
 
 .project-page--left-column
+  +border(black)
 
 .project-page--right-column
   width: 20%
@@ -20,7 +21,7 @@
     margin: $spacer-5 auto
     display: flex
     flex-direction: column
-    padding: 0
+    padding-left: $spacer-2
   li
     list-style: none
     text-transform: uppercase

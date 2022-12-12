@@ -81,7 +81,7 @@
   grid-column: span 3;
 }
 
-.sudoku___board--cell.-hidden {
+.sudoku___board--number-wrapper.-hidden {
   display: none;
 }
 
