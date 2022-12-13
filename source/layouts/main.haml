@@ -15,12 +15,12 @@
       = current_page.data.title 
 
 
-    = stylesheet_link_tag "assets/unpoly/unpoly" 
+    = stylesheet_link_tag "/assets/unpoly/unpoly" 
     = stylesheet_link_tag "normalize" 
     = stylesheet_link_tag "styles" 
-    = stylesheet_link_tag "assets/sudoku/sudoku" 
+    = stylesheet_link_tag "/assets/sudoku/sudoku" 
     = bem_blocks
-    = javascript_include_tag "assets/unpoly/unpoly", defer: true, type: "module"
+    = javascript_include_tag "/assets/unpoly/unpoly", defer: true, type: "module"
     = javascript_include_tag "unpoly_config", defer: true, type: "module"
     = unpoly_compilers
   %body
